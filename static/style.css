@@ -2078,3 +2078,241 @@ section[data-testid="stSidebar"] ::-webkit-scrollbar-thumb:hover,
 /* =========================================================
    END — V4 DARK DASHBOARD THEME
    ========================================================= */
+
+
+/* =========================================================
+   V5 — LIGHTER TAB HOVER + MODERN ICON STYLE
+   CSS ONLY — application logic/content unchanged
+   ========================================================= */
+
+/* ---------- REPORT / SEARCH TAB COLORS ---------- */
+
+/* Normal tab */
+.stTabs [data-baseweb="tab"] {
+  background: transparent !important;
+  color: #9eb1c2 !important;
+  border: 1px solid transparent !important;
+  transition:
+    background .18s ease,
+    color .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease,
+    transform .18s ease !important;
+}
+
+/* Much lighter hover — blends with the dark dashboard */
+.stTabs [data-baseweb="tab"]:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(56, 205, 255, .16),
+    rgba(130, 113, 255, .10)
+  ) !important;
+  color: #eafaff !important;
+  border-color: rgba(72, 210, 255, .20) !important;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, .16) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Active Report New Hazard tab */
+.stTabs [data-baseweb="tab"][aria-selected="true"] {
+  background: linear-gradient(
+    135deg,
+    #159dcc,
+    #28b9e8
+  ) !important;
+  color: #f8fdff !important;
+  border-color: rgba(94, 220, 255, .55) !important;
+  box-shadow:
+    0 7px 20px rgba(24, 191, 255, .16),
+    inset 0 1px 0 rgba(255,255,255,.13) !important;
+}
+
+/* Lighter active hover */
+.stTabs [data-baseweb="tab"][aria-selected="true"]:hover {
+  background: linear-gradient(
+    135deg,
+    #35c9f4,
+    #65d7f7
+  ) !important;
+  color: #062033 !important;
+  border-color: rgba(145, 235, 255, .75) !important;
+  box-shadow:
+    0 8px 22px rgba(24, 191, 255, .20),
+    inset 0 1px 0 rgba(255,255,255,.28) !important;
+}
+
+
+/* ---------- MODERN TAB ICONS ----------
+   Replaces the visible emoji-style tab labels with clean,
+   dashboard-style CSS icons while preserving the actual
+   Streamlit tab functionality.
+*/
+
+.stTabs [data-baseweb="tab"]:nth-child(1),
+.stTabs [data-baseweb="tab"]:nth-child(2) {
+  font-size: 0 !important;
+  gap: 8px !important;
+}
+
+/* Report icon */
+.stTabs [data-baseweb="tab"]:nth-child(1)::before {
+  content: "＋";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border: 1px solid rgba(112, 220, 255, .48);
+  border-radius: 7px;
+  color: #62d9ff;
+  background: rgba(24, 191, 255, .10);
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+/* Report label */
+.stTabs [data-baseweb="tab"]:nth-child(1)::after {
+  content: "Report New Hazard";
+  font-size: .88rem;
+  font-weight: 650;
+  color: inherit;
+  letter-spacing: -.01em;
+}
+
+/* Search icon */
+.stTabs [data-baseweb="tab"]:nth-child(2)::before {
+  content: "⌕";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border: 1px solid rgba(150, 168, 190, .25);
+  border-radius: 7px;
+  color: #a8bfd2;
+  background: rgba(255,255,255,.035);
+  font-family: "Segoe UI Symbol", Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+/* Search label */
+.stTabs [data-baseweb="tab"]:nth-child(2)::after {
+  content: "Search Any Ticket";
+  font-size: .88rem;
+  font-weight: 650;
+  color: inherit;
+  letter-spacing: -.01em;
+}
+
+/* Active report icon */
+.stTabs [data-baseweb="tab"][aria-selected="true"]:nth-child(1)::before {
+  color: #07314a;
+  background: rgba(255,255,255,.22);
+  border-color: rgba(255,255,255,.35);
+}
+
+/* Hover report icon */
+.stTabs [data-baseweb="tab"]:nth-child(1):hover::before {
+  color: #dff9ff;
+  background: rgba(255,255,255,.11);
+  border-color: rgba(155,235,255,.45);
+}
+
+/* Hover search icon */
+.stTabs [data-baseweb="tab"]:nth-child(2):hover::before {
+  color: #dff9ff;
+  background: rgba(24,191,255,.10);
+  border-color: rgba(90,214,255,.35);
+}
+
+
+/* ---------- MODERN SIDEBAR RADIO ICONS ---------- */
+
+section[data-testid="stSidebar"] [data-baseweb="radio"] > div {
+  border-radius: 12px !important;
+  min-height: 38px !important;
+}
+
+section[data-testid="stSidebar"] [data-baseweb="radio"] [role="radio"] {
+  width: 15px !important;
+  height: 15px !important;
+  min-width: 15px !important;
+  border-radius: 50% !important;
+  border: 1.5px solid #587187 !important;
+  background: #091522 !important;
+  box-shadow: inset 0 0 0 3px #091522 !important;
+}
+
+section[data-testid="stSidebar"] [data-baseweb="radio"] [aria-checked="true"] {
+  border-color: #55d7ff !important;
+  background: #55d7ff !important;
+  box-shadow:
+    inset 0 0 0 3px #091522,
+    0 0 0 4px rgba(85,215,255,.08) !important;
+}
+
+
+/* ---------- BUTTON HOVER: LIGHTER + MORE PREMIUM ---------- */
+
+.stButton > button:hover,
+.stDownloadButton > button:hover {
+  background: linear-gradient(
+    135deg,
+    #16334c,
+    #214762
+  ) !important;
+  color: #f1fbff !important;
+  border-color: rgba(91, 214, 255, .38) !important;
+  box-shadow:
+    0 8px 20px rgba(0,0,0,.18),
+    0 0 0 1px rgba(24,191,255,.035) !important;
+  transform: translateY(-1px) !important;
+}
+
+.stButton > button[kind="primary"]:hover,
+.stButton > button[data-testid="baseButton-primary"]:hover {
+  background: linear-gradient(
+    135deg,
+    #42cdf2,
+    #7addf7
+  ) !important;
+  color: #062033 !important;
+  border-color: #8de5ff !important;
+  box-shadow:
+    0 9px 24px rgba(24,191,255,.18),
+    0 0 20px rgba(24,191,255,.07) !important;
+}
+
+
+/* ---------- UPLOAD BUTTON ICON ---------- */
+
+[data-testid="stFileUploaderDropzone"] button {
+  background: #102a40 !important;
+  color: #a9eaff !important;
+  border-color: rgba(82,214,255,.30) !important;
+}
+
+[data-testid="stFileUploaderDropzone"] button:hover {
+  background: #173a55 !important;
+  color: #e7faff !important;
+  border-color: rgba(102,222,255,.55) !important;
+}
+
+[data-testid="stFileUploaderDropzone"] button svg {
+  color: #61d9ff !important;
+  stroke: #61d9ff !important;
+}
+
+
+/* ---------- CLEANER FOCUS STATE ---------- */
+
+.stTabs [data-baseweb="tab"]:focus-visible,
+.stButton > button:focus-visible,
+.stDownloadButton > button:focus-visible {
+  outline: 2px solid rgba(85,215,255,.65) !important;
+  outline-offset: 2px !important;
+}
