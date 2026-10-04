@@ -1311,7 +1311,6 @@ section[data-testid="stSidebar"] [data-baseweb="radio"] label {
 }
 
 section[data-testid="stSidebar"] [data-baseweb="radio"] label:hover {
-  color: #ffffff !important;
   background: rgba(255,255,255,.065) !important;
 }
 
