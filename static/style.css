@@ -1,114 +1,115 @@
 /* =========================================================
-   ShehrBehtar AI
-   PREMIUM CIVIC-TECH UI — V2
-   CSS ONLY — NO APPLICATION LOGIC
+   ShehrBehtar AI — Premium Civic-Tech Dashboard
+   Visual-only stylesheet.
+   No application logic is defined here.
+   Compatible with Streamlit.
    ========================================================= */
 
 
 /* =========================================================
-   1. DESIGN SYSTEM
+   1. DESIGN TOKENS
    ========================================================= */
 
 :root {
   /* Brand */
   --sb-primary: #2563eb;
-  --sb-primary-hover: #1d4ed8;
-  --sb-primary-dark: #172554;
-  --sb-primary-light: #eff6ff;
-  --sb-primary-lighter: #f5f9ff;
+  --sb-primary-dark: #1d4ed8;
+  --sb-primary-deep: #1e3a8a;
+  --sb-primary-soft: #eff6ff;
 
-  --sb-teal: #0f9f8f;
-  --sb-teal-light: #ecfdf9;
+  --sb-accent: #0d9488;
+  --sb-accent-soft: #f0fdfa;
 
   /* Semantic */
   --sb-success: #059669;
-  --sb-success-light: #ecfdf5;
+  --sb-success-soft: #ecfdf5;
 
   --sb-warning: #d97706;
-  --sb-warning-light: #fffbeb;
+  --sb-warning-soft: #fffbeb;
 
   --sb-danger: #dc2626;
-  --sb-danger-light: #fef2f2;
+  --sb-danger-soft: #fef2f2;
 
   --sb-info: #0284c7;
-  --sb-info-light: #f0f9ff;
+  --sb-info-soft: #f0f9ff;
 
   /* Text */
-  --sb-text: #0f172a;
-  --sb-text-2: #1e293b;
-  --sb-text-3: #475569;
+  --sb-ink: #0f172a;
+  --sb-ink-soft: #1e293b;
   --sb-muted: #64748b;
-  --sb-muted-2: #94a3b8;
+  --sb-muted-light: #94a3b8;
 
-  /* Background */
-  --sb-background: #f4f7fb;
-  --sb-background-2: #f8fafc;
-  --sb-white: #ffffff;
+  /* Surfaces */
+  --sb-bg: #f5f7fb;
+  --sb-bg-soft: #f8fafc;
+  --sb-surface: #ffffff;
+  --sb-surface-soft: #f8fafc;
 
   /* Borders */
   --sb-border: #e2e8f0;
   --sb-border-light: #edf2f7;
+  --sb-border-focus: #93c5fd;
 
   /* Sidebar */
-  --sb-sidebar: #071426;
-  --sb-sidebar-2: #0b1c32;
-  --sb-sidebar-3: #102642;
+  --sb-sidebar: #0b1220;
+  --sb-sidebar-mid: #111c32;
+  --sb-sidebar-soft: #17243d;
 
   /* Radius */
   --sb-radius-xs: 8px;
-  --sb-radius-sm: 11px;
+  --sb-radius-sm: 10px;
+  --sb-radius-md: 14px;
   --sb-radius: 16px;
   --sb-radius-lg: 20px;
-  --sb-radius-xl: 26px;
 
   /* Shadows */
   --sb-shadow-xs: 0 2px 8px rgba(15, 23, 42, .035);
-  --sb-shadow-sm: 0 5px 18px rgba(15, 23, 42, .055);
-  --sb-shadow: 0 10px 30px rgba(15, 23, 42, .075);
-  --sb-shadow-lg: 0 18px 45px rgba(15, 23, 42, .11);
+  --sb-shadow-sm: 0 4px 14px rgba(15, 23, 42, .055);
+  --sb-shadow: 0 8px 24px rgba(15, 23, 42, .065);
+  --sb-shadow-lg: 0 16px 40px rgba(15, 23, 42, .09);
 
   /* Motion */
-  --sb-fast: 160ms ease;
-  --sb-normal: 220ms ease;
-  --sb-slow: 320ms ease;
+  --sb-transition: 180ms ease-out;
+  --sb-transition-slow: 240ms ease-out;
 }
 
 
 /* =========================================================
-   2. GLOBAL APP
+   2. GLOBAL / PAGE
    ========================================================= */
 
-html,
-body {
-  background: var(--sb-background) !important;
-}
-
 .stApp {
-  min-height: 100vh;
-
   background:
     radial-gradient(
-      circle at 80% -10%,
-      rgba(37, 99, 235, .10),
-      transparent 30rem
+      circle at 92% 0%,
+      rgba(37, 99, 235, .055),
+      transparent 26rem
     ),
     radial-gradient(
-      circle at 5% 75%,
-      rgba(15, 159, 143, .045),
+      circle at 0% 70%,
+      rgba(13, 148, 136, .035),
       transparent 24rem
     ),
     linear-gradient(
       180deg,
-      #f7faff 0%,
-      #ffffff 40%,
-      #f5f8fc 100%
+      #f7f9fc 0%,
+      #ffffff 42%,
+      #f7f9fc 100%
     );
 
-  color: var(--sb-text);
+  color: var(--sb-ink);
 }
 
 
-/* Remove Streamlit top decoration */
+/* Main content */
+
+.main .block-container {
+  max-width: 1500px;
+  padding: 2rem 2.5rem 3.5rem;
+}
+
+
+/* Remove unnecessary Streamlit decoration */
 
 [data-testid="stHeader"] {
   background: transparent !important;
@@ -119,11 +120,10 @@ body {
 }
 
 
-/* Main content */
+/* Main content text */
 
-.main .block-container {
-  max-width: 1540px !important;
-  padding: 2.25rem 3rem 4rem !important;
+[data-testid="stAppViewContainer"] {
+  color: var(--sb-ink);
 }
 
 
@@ -137,163 +137,145 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--sb-text) !important;
-
+  color: var(--sb-ink) !important;
   font-weight: 750 !important;
-
-  letter-spacing: -0.035em;
-
+  letter-spacing: -.025em;
   line-height: 1.2;
 }
 
-h1 {
-  font-size: clamp(2rem, 3vw, 3rem) !important;
 
-  margin-top: .25rem !important;
-  margin-bottom: .55rem !important;
+h1 {
+  font-size: clamp(1.85rem, 2.8vw, 2.65rem) !important;
+  margin-bottom: .4rem !important;
 }
+
 
 h2 {
-  font-size: clamp(1.45rem, 2vw, 2rem) !important;
-
-  margin-top: 1.5rem !important;
+  font-size: clamp(1.4rem, 2vw, 1.85rem) !important;
 }
+
 
 h3 {
-  font-size: 1.25rem !important;
+  font-size: 1.2rem !important;
 }
+
 
 h4 {
   font-size: 1.05rem !important;
 }
 
+
 p {
-  color: var(--sb-text-3);
-
-  line-height: 1.65;
+  line-height: 1.55;
 }
 
-[data-testid="stMarkdownContainer"] {
-  color: var(--sb-text);
-}
 
-[data-testid="stCaptionContainer"],
-.stCaption {
+/* Captions */
+
+.stCaption,
+[data-testid="stCaptionContainer"] {
   color: var(--sb-muted) !important;
 }
 
 
+/* Markdown */
+
+[data-testid="stMarkdownContainer"] {
+  color: var(--sb-ink);
+}
+
+
+/* Links */
+
+a {
+  color: var(--sb-primary);
+  transition: color var(--sb-transition);
+}
+
+a:hover {
+  color: var(--sb-primary-dark);
+}
+
+
 /* =========================================================
-   4. SIDEBAR — PREMIUM DARK NAVIGATION
+   4. SIDEBAR
    ========================================================= */
 
 section[data-testid="stSidebar"] {
   background:
     radial-gradient(
       circle at 100% 0%,
-      rgba(37, 99, 235, .20),
-      transparent 17rem
-    ),
-    radial-gradient(
-      circle at 0% 100%,
-      rgba(15, 159, 143, .08),
-      transparent 20rem
+      rgba(37, 99, 235, .12),
+      transparent 18rem
     ),
     linear-gradient(
       180deg,
-      #0a1b31 0%,
-      #071426 58%,
-      #050e1c 100%
-    ) !important;
+      var(--sb-sidebar-mid) 0%,
+      var(--sb-sidebar) 55%,
+      #080e1a 100%
+    );
 
-  border-right: 1px solid rgba(255,255,255,.06);
-
-  box-shadow:
-    10px 0 35px rgba(2, 12, 27, .10);
+  border-right: 1px solid rgba(255, 255, 255, .06);
 }
 
 
-/* Sidebar universal text */
+/* Sidebar text */
 
 section[data-testid="stSidebar"] * {
-  color: #dce7f4;
+  color: #dbe4f0;
 }
 
-
-/* Sidebar headings */
 
 section[data-testid="stSidebar"] h1,
 section[data-testid="stSidebar"] h2,
 section[data-testid="stSidebar"] h3,
 section[data-testid="stSidebar"] h4 {
   color: #ffffff !important;
-
-  letter-spacing: -.025em;
 }
 
-
-/* Sidebar paragraphs */
 
 section[data-testid="stSidebar"]
 [data-testid="stMarkdownContainer"] p {
-  color: #91a4ba !important;
+  color: #94a3b8;
 }
 
 
-/* Sidebar divider */
+/* Sidebar horizontal rules */
 
 section[data-testid="stSidebar"] hr {
-  border: 0 !important;
-
-  border-top:
-    1px solid rgba(255,255,255,.08) !important;
-
-  margin: 1.5rem 0 !important;
+  border-top-color: rgba(255, 255, 255, .08) !important;
 }
 
 
-/* Sidebar radio container */
+/* Sidebar radio navigation */
 
 section[data-testid="stSidebar"]
 [data-baseweb="radio"] {
-  margin: 5px 0 !important;
+  margin: 3px 0;
 }
 
-
-/* Radio option */
 
 section[data-testid="stSidebar"]
 [data-baseweb="radio"] > div {
-  border-radius: 12px !important;
-
-  padding: 4px !important;
-
+  border-radius: 11px;
+  padding: 3px;
   transition:
-    background var(--sb-normal),
-    transform var(--sb-fast),
-    box-shadow var(--sb-normal);
+    background var(--sb-transition),
+    transform var(--sb-transition);
 }
 
-
-/* Hover */
 
 section[data-testid="stSidebar"]
 [data-baseweb="radio"] > div:hover {
-  background: rgba(255,255,255,.065) !important;
-
-  transform: translateX(3px);
+  background: rgba(255, 255, 255, .065);
+  transform: translateX(2px);
 }
 
 
-/* Radio labels */
-
 section[data-testid="stSidebar"]
 [data-baseweb="radio"] label {
-  color: #cbd8e8 !important;
-
-  font-size: .92rem !important;
-
-  font-weight: 600 !important;
+  font-weight: 600;
+  color: #cbd5e1;
 }
 
 
@@ -301,554 +283,376 @@ section[data-testid="stSidebar"]
 
 section[data-testid="stSidebar"]
 .stButton > button {
-  width: 100%;
-
-  min-height: 43px;
-
-  border-radius: 12px !important;
-
-  border:
-    1px solid rgba(255,255,255,.09) !important;
-
-  background:
-    rgba(255,255,255,.055) !important;
-
-  color: #e6eef8 !important;
-
-  box-shadow: none !important;
-
-  transition:
-    background var(--sb-normal),
-    border-color var(--sb-normal),
-    transform var(--sb-fast);
+  background: rgba(255, 255, 255, .055);
+  border-color: rgba(255, 255, 255, .09);
+  color: #e2e8f0;
+  box-shadow: none;
 }
+
 
 section[data-testid="stSidebar"]
 .stButton > button:hover {
-  background:
-    rgba(255,255,255,.10) !important;
-
-  border-color:
-    rgba(255,255,255,.17) !important;
-
-  transform: translateY(-1px);
+  background: rgba(255, 255, 255, .09);
+  border-color: rgba(255, 255, 255, .15);
 }
 
 
-/* Sidebar custom cards */
+/* Sidebar ticket/status cards */
 
 section[data-testid="stSidebar"]
 div[style*="background-color"] {
-  border-radius: 14px !important;
-
-  border:
-    1px solid rgba(255,255,255,.06);
-
-  box-shadow:
-    0 8px 24px rgba(0,0,0,.18) !important;
+  border-radius: 12px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, .16);
 }
 
 
 /* =========================================================
-   5. TOP NAVIGATION / TABS
+   5. TABS / NAVIGATION
    ========================================================= */
 
 .stTabs {
-  margin-top: 1rem !important;
-
-  margin-bottom: 1.5rem !important;
+  margin-top: .5rem;
 }
 
-
-/* Tab background */
 
 .stTabs [data-baseweb="tab-list"] {
   display: flex;
-
-  align-items: center;
-
   gap: 6px;
 
-  width: fit-content;
+  background: rgba(255, 255, 255, .82);
+  border: 1px solid var(--sb-border);
 
-  max-width: 100%;
+  padding: 5px;
+  border-radius: 14px;
 
-  padding: 6px;
+  box-shadow: var(--sb-shadow-xs);
 
-  border:
-    1px solid rgba(226,232,240,.9);
-
-  border-radius: 15px;
-
-  background:
-    rgba(255,255,255,.82);
-
-  box-shadow:
-    0 6px 20px rgba(15,23,42,.055);
-
-  backdrop-filter: blur(14px);
-
-  overflow-x: auto;
+  backdrop-filter: blur(10px);
 }
 
-
-/* Individual tab */
 
 .stTabs [data-baseweb="tab"] {
-  min-height: 42px !important;
+  min-height: 42px;
+  height: 42px;
 
-  height: 42px !important;
+  border-radius: 10px;
 
-  padding: 0 18px !important;
+  padding: 0 17px;
 
-  border-radius: 10px !important;
-
-  color: var(--sb-muted) !important;
-
-  font-size: .92rem !important;
-
-  font-weight: 650 !important;
-
-  white-space: nowrap;
+  color: var(--sb-muted);
+  font-weight: 650;
 
   transition:
-    background var(--sb-normal),
-    color var(--sb-fast),
-    box-shadow var(--sb-normal),
-    transform var(--sb-fast);
+    background var(--sb-transition),
+    color var(--sb-transition),
+    box-shadow var(--sb-transition),
+    transform var(--sb-transition);
 }
 
-
-/* Tab hover */
 
 .stTabs [data-baseweb="tab"]:hover {
-  color: var(--sb-primary) !important;
-
-  background:
-    #eff6ff !important;
-
-  transform: translateY(-1px);
+  background: var(--sb-primary-soft);
+  color: var(--sb-primary);
 }
 
 
-/* Active tab */
-
-.stTabs [data-baseweb="tab"][aria-selected="true"],
 .stTabs [aria-selected="true"] {
-  color: #ffffff !important;
-
-  background:
-    linear-gradient(
-      135deg,
-      #2563eb,
-      #3b82f6
-    ) !important;
+  color: var(--sb-primary) !important;
+  background: #ffffff;
 
   box-shadow:
-    0 7px 18px rgba(37,99,235,.22) !important;
+    0 3px 12px rgba(37, 99, 235, .10);
 
-  font-weight: 750 !important;
+  font-weight: 700;
 }
 
-
-/* Remove default tab underline */
 
 .stTabs [data-baseweb="tab-highlight"] {
-  display: none !important;
+  background: var(--sb-primary);
+  height: 2px;
+  border-radius: 2px;
 }
 
 
 /* =========================================================
-   6. HERO / PAGE HEADER
-   ========================================================= */
-
-/*
-   Streamlit page headings get a subtle premium treatment.
-*/
-
-.main .block-container > div:first-child {
-  position: relative;
-}
-
-
-/* Heading area */
-
-.main h1:first-of-type {
-  position: relative;
-
-  padding-left: 0;
-
-  font-weight: 800 !important;
-}
-
-
-/* Accent line under heading */
-
-.main h1:first-of-type::after {
-  content: "";
-
-  display: block;
-
-  width: 54px;
-
-  height: 4px;
-
-  margin-top: 12px;
-
-  border-radius: 99px;
-
-  background:
-    linear-gradient(
-      90deg,
-      var(--sb-primary),
-      var(--sb-teal)
-    );
-}
-
-
-/* =========================================================
-   7. BUTTONS
+   6. BUTTONS
    ========================================================= */
 
 .stButton > button,
 .stDownloadButton > button {
-  min-height: 44px !important;
+  min-height: 42px;
 
-  padding:
-    0 18px !important;
+  padding: 0 17px;
 
-  border-radius:
-    12px !important;
+  border-radius: 11px;
 
-  border:
-    1px solid var(--sb-border) !important;
+  border: 1px solid var(--sb-border);
 
-  background:
-    #ffffff !important;
+  background: #ffffff;
 
-  color:
-    var(--sb-text) !important;
+  color: var(--sb-ink);
 
-  font-size:
-    .92rem !important;
+  font-weight: 700;
+  letter-spacing: -.01em;
 
-  font-weight:
-    700 !important;
-
-  box-shadow:
-    0 3px 10px rgba(15,23,42,.045) !important;
+  box-shadow: var(--sb-shadow-xs);
 
   transition:
-    transform var(--sb-fast),
-    box-shadow var(--sb-normal),
-    border-color var(--sb-normal),
-    background var(--sb-normal) !important;
+    transform var(--sb-transition),
+    box-shadow var(--sb-transition),
+    border-color var(--sb-transition),
+    background var(--sb-transition);
 }
 
 
-/* Button hover */
+/* Hover */
 
 .stButton > button:hover,
 .stDownloadButton > button:hover {
-  transform:
-    translateY(-2px) !important;
+  transform: translateY(-1px);
 
-  border-color:
-    #bfdbfe !important;
+  border-color: #cbd5e1;
 
-  background:
-    #f8fbff !important;
+  background: #ffffff;
 
-  box-shadow:
-    0 9px 22px rgba(15,23,42,.09) !important;
+  box-shadow: var(--sb-shadow-sm);
 }
 
 
-/* Primary button */
+/* Active */
+
+.stButton > button:active,
+.stDownloadButton > button:active {
+  transform: translateY(0);
+  box-shadow: var(--sb-shadow-xs);
+}
+
+
+/* Primary */
 
 .stButton > button[kind="primary"],
 .stButton > button[data-testid="baseButton-primary"] {
-  color: #ffffff !important;
-
-  border-color:
-    var(--sb-primary) !important;
-
   background:
     linear-gradient(
       135deg,
-      #2563eb,
+      var(--sb-primary),
       #3b82f6
-    ) !important;
+    );
+
+  border-color: var(--sb-primary);
+
+  color: #ffffff;
 
   box-shadow:
-    0 9px 22px
-    rgba(37,99,235,.22) !important;
+    0 7px 18px rgba(37, 99, 235, .20);
 }
 
 
-/* Primary hover */
-
 .stButton > button[kind="primary"]:hover,
 .stButton > button[data-testid="baseButton-primary"]:hover {
-  color: #ffffff !important;
-
   background:
     linear-gradient(
       135deg,
-      #1d4ed8,
-      #2563eb
-    ) !important;
+      var(--sb-primary-dark),
+      var(--sb-primary)
+    );
+
+  border-color: var(--sb-primary-dark);
 
   box-shadow:
-    0 13px 28px
-    rgba(37,99,235,.28) !important;
+    0 10px 24px rgba(37, 99, 235, .25);
+}
+
+
+/* Disabled buttons */
+
+.stButton > button:disabled,
+.stDownloadButton > button:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
 
 /* =========================================================
-   8. FORM INPUTS
+   7. INPUTS / FORMS
    ========================================================= */
 
 div[data-baseweb="input"] > div,
 div[data-baseweb="select"] > div,
 textarea,
 input {
-  border-radius:
-    12px !important;
+  border-radius: 11px !important;
 }
 
 
-/* Input */
+/* Input containers */
 
 div[data-baseweb="input"] > div,
 div[data-baseweb="select"] > div {
-  min-height:
-    44px;
+  border: 1px solid var(--sb-border) !important;
 
-  border:
-    1px solid var(--sb-border) !important;
+  background: #ffffff;
 
-  background:
-    #ffffff !important;
-
-  box-shadow:
-    0 2px 9px rgba(15,23,42,.035);
+  box-shadow: var(--sb-shadow-xs);
 
   transition:
-    border-color var(--sb-fast),
-    box-shadow var(--sb-fast);
+    border-color var(--sb-transition),
+    box-shadow var(--sb-transition),
+    background var(--sb-transition);
 }
 
 
-/* Input focus */
+/* Focus */
 
 div[data-baseweb="input"] > div:focus-within,
 div[data-baseweb="select"] > div:focus-within {
-  border-color:
-    #60a5fa !important;
+  border-color: var(--sb-border-focus) !important;
 
   box-shadow:
-    0 0 0 4px
-    rgba(37,99,235,.09) !important;
+    0 0 0 3px rgba(37, 99, 235, .09);
 }
 
 
 /* Textarea */
 
 textarea {
-  border:
-    1px solid var(--sb-border) !important;
+  border: 1px solid var(--sb-border) !important;
+  background: #ffffff !important;
 
-  background:
-    #ffffff !important;
+  box-shadow: var(--sb-shadow-xs);
 
-  box-shadow:
-    0 2px 9px rgba(15,23,42,.035);
-
-  padding:
-    12px 14px !important;
+  transition:
+    border-color var(--sb-transition),
+    box-shadow var(--sb-transition);
 }
+
 
 textarea:focus {
-  border-color:
-    #60a5fa !important;
+  border-color: var(--sb-border-focus) !important;
 
   box-shadow:
-    0 0 0 4px
-    rgba(37,99,235,.09) !important;
+    0 0 0 3px rgba(37, 99, 235, .09) !important;
 }
 
 
-/* Form labels */
+/* Labels */
 
 label[data-testid="stWidgetLabel"] p,
 .stTextInput label,
-.stTextArea label,
 .stSelectbox label,
 .stNumberInput label,
-.stFileUploader label {
-  color:
-    var(--sb-text-2) !important;
+.stFileUploader label,
+.stTextArea label {
+  color: #334155 !important;
 
-  font-size:
-    .87rem !important;
+  font-weight: 650 !important;
 
-  font-weight:
-    700 !important;
+  letter-spacing: -.005em;
+}
+
+
+/* Select menu */
+
+[data-baseweb="popover"] {
+  border-radius: 12px;
 }
 
 
 /* =========================================================
-   9. FILE UPLOADER — MAJOR VISUAL REDESIGN
+   8. FILE UPLOADER
    ========================================================= */
 
 [data-testid="stFileUploaderDropzone"] {
-  position: relative;
+  min-height: 150px;
 
-  min-height:
-    175px !important;
+  border: 1.5px dashed #cbd5e1;
 
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  justify-content:
-    center;
-
-  border:
-    2px dashed #cbd5e1 !important;
-
-  border-radius:
-    18px !important;
+  border-radius: 15px;
 
   background:
     linear-gradient(
-      145deg,
+      180deg,
       #ffffff 0%,
-      #f8fbff 100%
-    ) !important;
-
-  box-shadow:
-    inset 0 0 0 1px
-    rgba(255,255,255,.7),
-
-    0 7px 24px
-    rgba(15,23,42,.045);
+      #f8fafc 100%
+    );
 
   transition:
-    border-color var(--sb-normal),
-    background var(--sb-normal),
-    box-shadow var(--sb-normal),
-    transform var(--sb-fast);
+    border-color var(--sb-transition),
+    background var(--sb-transition),
+    box-shadow var(--sb-transition);
 }
 
-
-/* Upload hover */
 
 [data-testid="stFileUploaderDropzone"]:hover {
-  border-color:
-    #60a5fa !important;
+  border-color: #60a5fa;
 
   background:
     linear-gradient(
-      145deg,
-      #ffffff,
-      #eff6ff
-    ) !important;
+      180deg,
+      #ffffff 0%,
+      #eff6ff 100%
+    );
 
   box-shadow:
-    0 12px 30px
-    rgba(37,99,235,.09);
-
-  transform:
-    translateY(-1px);
+    0 6px 18px rgba(37, 99, 235, .07);
 }
 
 
-/* Upload button */
+/* Uploader buttons */
 
 [data-testid="stFileUploaderDropzone"] button {
-  min-height:
-    42px !important;
+  border-radius: 9px !important;
 
-  padding:
-    0 18px !important;
+  border: 1px solid var(--sb-border) !important;
 
-  border-radius:
-    11px !important;
+  background: #ffffff !important;
 
-  border:
-    1px solid #bfdbfe !important;
-
-  background:
-    #ffffff !important;
-
-  color:
-    var(--sb-primary) !important;
-
-  font-weight:
-    750 !important;
-
-  box-shadow:
-    0 4px 12px
-    rgba(37,99,235,.08) !important;
+  font-weight: 650 !important;
 
   transition:
-    all var(--sb-fast);
+    background var(--sb-transition),
+    border-color var(--sb-transition),
+    transform var(--sb-transition);
 }
 
 
 [data-testid="stFileUploaderDropzone"] button:hover {
-  background:
-    #eff6ff !important;
+  background: var(--sb-primary-soft) !important;
+  border-color: #bfdbfe !important;
 
-  border-color:
-    #93c5fd !important;
-
-  transform:
-    translateY(-1px);
+  transform: translateY(-1px);
 }
 
 
 /* =========================================================
-   10. METRIC CARDS
+   9. METRIC CARDS
    ========================================================= */
 
 div[data-testid="stMetric"] {
   position: relative;
 
-  min-height:
-    105px;
+  background: rgba(255, 255, 255, .96);
 
-  padding:
-    20px !important;
+  border: 1px solid var(--sb-border);
 
-  border:
-    1px solid var(--sb-border) !important;
+  border-radius: var(--sb-radius);
 
-  border-radius:
-    17px !important;
+  padding: 19px 20px;
 
-  background:
-    rgba(255,255,255,.96) !important;
+  box-shadow: var(--sb-shadow);
 
-  box-shadow:
-    0 7px 24px
-    rgba(15,23,42,.055) !important;
-
-  overflow:
-    hidden;
+  overflow: hidden;
 
   transition:
-    transform var(--sb-normal),
-    box-shadow var(--sb-normal),
-    border-color var(--sb-fast);
+    transform var(--sb-transition-slow),
+    box-shadow var(--sb-transition-slow),
+    border-color var(--sb-transition);
 }
 
 
-/* Metric accent */
+/* Subtle accent line */
 
 div[data-testid="stMetric"]::before {
   content: "";
@@ -856,619 +660,531 @@ div[data-testid="stMetric"]::before {
   position: absolute;
 
   left: 0;
-
   top: 0;
 
-  width: 4px;
-
+  width: 3px;
   height: 100%;
 
   background:
     linear-gradient(
       180deg,
-      #2563eb,
-      #14b8a6
+      var(--sb-primary),
+      var(--sb-accent)
     );
+
+  opacity: .8;
 }
 
 
-/* Metric hover */
+/* Hover */
 
 div[data-testid="stMetric"]:hover {
-  transform:
-    translateY(-4px);
+  transform: translateY(-2px);
 
-  border-color:
-    #d3dfed !important;
+  border-color: #d7e1ee;
 
-  box-shadow:
-    0 18px 38px
-    rgba(15,23,42,.10) !important;
+  box-shadow: var(--sb-shadow-lg);
 }
 
+
+/* Metric label */
 
 div[data-testid="stMetricLabel"] {
-  color:
-    var(--sb-muted) !important;
+  color: var(--sb-muted) !important;
 
-  font-weight:
-    650 !important;
+  font-size: .86rem;
+
+  font-weight: 650;
+
+  letter-spacing: .005em;
 }
 
 
+/* Metric value */
+
 div[data-testid="stMetricValue"] {
-  color:
-    var(--sb-text) !important;
+  color: var(--sb-ink) !important;
 
-  font-size:
-    1.65rem !important;
+  font-weight: 800;
 
-  font-weight:
-    800 !important;
+  letter-spacing: -.025em;
+}
+
+
+/* Metric delta */
+
+[data-testid="stMetricDelta"] {
+  font-weight: 650;
 }
 
 
 /* =========================================================
-   11. GENERAL STREAMLIT CONTAINERS
+   10. GENERAL CARDS / CONTAINERS
    ========================================================= */
 
+/* Streamlit bordered containers */
+
 div[data-testid="stVerticalBlockBorderWrapper"] {
-  border:
-    1px solid var(--sb-border) !important;
+  border-radius: var(--sb-radius) !important;
 
-  border-radius:
-    18px !important;
+  border-color: var(--sb-border) !important;
 
-  background:
-    rgba(255,255,255,.94) !important;
+  background: rgba(255, 255, 255, .92);
 
-  box-shadow:
-    0 7px 25px
-    rgba(15,23,42,.055) !important;
-
-  overflow:
-    hidden;
+  box-shadow: var(--sb-shadow-sm);
 
   transition:
-    box-shadow var(--sb-normal),
-    border-color var(--sb-normal);
+    box-shadow var(--sb-transition),
+    border-color var(--sb-transition);
 }
 
 
 div[data-testid="stVerticalBlockBorderWrapper"]:hover {
-  border-color:
-    #d4deeb !important;
+  border-color: #d8e1ec !important;
 
-  box-shadow:
-    0 13px 34px
-    rgba(15,23,42,.08) !important;
+  box-shadow: var(--sb-shadow);
 }
 
 
 /* =========================================================
-   12. EXPANDERS
+   11. EXPANDERS
    ========================================================= */
 
 [data-testid="stExpander"] {
-  border:
-    1px solid var(--sb-border) !important;
+  border: 1px solid var(--sb-border) !important;
 
-  border-radius:
-    15px !important;
+  border-radius: var(--sb-radius-md) !important;
 
-  background:
-    #ffffff !important;
+  background: #ffffff;
 
-  box-shadow:
-    0 5px 18px
-    rgba(15,23,42,.045) !important;
+  box-shadow: var(--sb-shadow-sm);
 
-  overflow:
-    hidden;
+  overflow: hidden;
+
+  transition:
+    box-shadow var(--sb-transition),
+    border-color var(--sb-transition);
+}
+
+
+[data-testid="stExpander"]:hover {
+  border-color: #d7e1ee !important;
+
+  box-shadow: var(--sb-shadow);
 }
 
 
 [data-testid="stExpander"] summary {
-  min-height:
-    48px;
+  font-weight: 700;
 
-  color:
-    var(--sb-text) !important;
-
-  font-weight:
-    700 !important;
+  color: var(--sb-ink);
 }
 
 
 [data-testid="stExpander"] summary:hover {
-  background:
-    #f8fafc !important;
+  background: var(--sb-bg-soft);
 }
 
 
 /* =========================================================
-   13. ALERTS
+   12. ALERTS / STATUS
    ========================================================= */
 
 div[data-testid="stAlert"] {
-  border-radius:
-    14px !important;
+  border-radius: 12px;
 
-  border-width:
-    1px !important;
+  border-width: 1px;
 
-  padding:
-    13px 15px !important;
+  box-shadow: var(--sb-shadow-xs);
 
-  box-shadow:
-    0 5px 16px
-    rgba(15,23,42,.045) !important;
+  padding: 12px 14px;
+}
+
+
+/* Alert text */
+
+div[data-testid="stAlert"] p {
+  line-height: 1.45;
 }
 
 
 /* =========================================================
-   14. MAP
-   ========================================================= */
-
-iframe[title*="streamlit_folium"],
-iframe[title*="Folium"] {
-  display:
-    block !important;
-
-  width:
-    100% !important;
-
-  border:
-    1px solid #dbe3ee !important;
-
-  border-radius:
-    18px !important;
-
-  box-shadow:
-    0 10px 30px
-    rgba(15,23,42,.08) !important;
-
-  overflow:
-    hidden !important;
-}
-
-
-/* =========================================================
-   15. PLOTLY / CHARTS
-   ========================================================= */
-
-[data-testid="stPlotlyChart"] {
-  border:
-    1px solid var(--sb-border) !important;
-
-  border-radius:
-    18px !important;
-
-  background:
-    #ffffff !important;
-
-  padding:
-    7px !important;
-
-  box-shadow:
-    0 9px 27px
-    rgba(15,23,42,.06) !important;
-
-  overflow:
-    hidden !important;
-}
-
-
-/* =========================================================
-   16. IMAGES
+   13. IMAGES
    ========================================================= */
 
 [data-testid="stImage"] img {
-  width:
-    100%;
+  display: block;
 
-  border-radius:
-    16px !important;
+  width: 100%;
 
-  border:
-    1px solid var(--sb-border);
+  border-radius: 14px;
 
-  box-shadow:
-    0 9px 26px
-    rgba(15,23,42,.075);
+  border: 1px solid var(--sb-border);
+
+  box-shadow: var(--sb-shadow);
 
   transition:
-    transform var(--sb-normal),
-    box-shadow var(--sb-normal);
+    transform var(--sb-transition),
+    box-shadow var(--sb-transition);
 }
 
 
 [data-testid="stImage"] img:hover {
-  transform:
-    scale(1.008);
-
-  box-shadow:
-    0 17px 38px
-    rgba(15,23,42,.10);
+  box-shadow: var(--sb-shadow-lg);
 }
 
 
 /* =========================================================
-   17. TABLE / DATAFRAME
+   14. CHARTS
+   ========================================================= */
+
+[data-testid="stPlotlyChart"] {
+  border: 1px solid var(--sb-border);
+
+  border-radius: var(--sb-radius);
+
+  background: #ffffff;
+
+  padding: 7px;
+
+  box-shadow: var(--sb-shadow);
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   15. MAPS / FOLIUM
+   ========================================================= */
+
+iframe[title*="streamlit_folium"],
+iframe[title*="Folium"] {
+  display: block;
+
+  width: 100%;
+
+  border-radius: var(--sb-radius) !important;
+
+  border: 1px solid var(--sb-border) !important;
+
+  box-shadow: var(--sb-shadow);
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   16. DATAFRAMES / TABLES
    ========================================================= */
 
 [data-testid="stDataFrame"] {
-  border:
-    1px solid var(--sb-border) !important;
+  border-radius: var(--sb-radius);
 
-  border-radius:
-    16px !important;
+  overflow: hidden;
 
-  overflow:
-    hidden !important;
+  border: 1px solid var(--sb-border);
 
-  background:
-    #ffffff !important;
+  box-shadow: var(--sb-shadow-sm);
 
-  box-shadow:
-    0 7px 23px
-    rgba(15,23,42,.055) !important;
+  background: #ffffff;
 }
 
 
 /* =========================================================
-   18. PROGRESS
+   17. PROGRESS / STATUS ELEMENTS
    ========================================================= */
 
 [data-testid="stProgress"] {
-  padding:
-    4px 0 !important;
+  padding: 2px 0;
 }
 
+
 [data-testid="stProgress"] > div {
-  border-radius:
-    999px !important;
+  border-radius: 999px;
 }
 
 
 /* =========================================================
-   19. CUSTOM TICKET / STATUS
+   18. CUSTOM TICKET / STATUS HTML
    ========================================================= */
 
 div[style*="Ticket Generated"] {
-  border-radius:
-    16px !important;
-
-  border:
-    1px solid rgba(5,150,105,.16) !important;
+  border-radius: var(--sb-radius-md);
 
   box-shadow:
-    0 12px 30px
-    rgba(5,150,105,.11) !important;
+    0 10px 26px rgba(5, 150, 105, .10);
 }
 
 
 div[style*="Status:"] {
-  border-radius:
-    16px !important;
+  border-radius: var(--sb-radius-md);
 
   box-shadow:
-    0 12px 32px
-    rgba(15,23,42,.09) !important;
+    0 10px 28px rgba(15, 23, 42, .09);
 }
 
 
 /* =========================================================
-   20. DIVIDERS
+   19. DIVIDERS
    ========================================================= */
 
 hr {
-  border:
-    0 !important;
+  border: 0 !important;
 
-  border-top:
-    1px solid #e7edf4 !important;
+  border-top: 1px solid var(--sb-border) !important;
 
-  margin:
-    1.4rem 0 !important;
+  margin: 1.5rem 0 !important;
 }
 
 
 /* =========================================================
-   21. COLUMNS
+   20. COLUMNS / LAYOUT
    ========================================================= */
 
 @media (min-width: 1000px) {
 
   [data-testid="stHorizontalBlock"] {
-    gap:
-      1.5rem !important;
+    gap: 1.25rem;
   }
 
 }
 
 
 /* =========================================================
-   22. COLUMN CARDS
-   ========================================================= */
-
-/*
-   Gives column-based dashboard sections more visual separation.
-*/
-
-@media (min-width: 900px) {
-
-  [data-testid="stHorizontalBlock"]
-  > [data-testid="column"] {
-    transition:
-      transform var(--sb-normal);
-  }
-
-}
-
-
-/* =========================================================
-   23. FOCUS / ACCESSIBILITY
+   21. FOCUS / ACCESSIBILITY
    ========================================================= */
 
 button:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
-  outline:
-    2px solid
-    rgba(37,99,235,.55) !important;
+  outline: 2px solid rgba(37, 99, 235, .55) !important;
 
-  outline-offset:
-    3px;
+  outline-offset: 2px;
 }
 
+
+/* Improve keyboard navigation */
 
 .stButton > button:focus-visible,
 .stDownloadButton > button:focus-visible {
   box-shadow:
-    0 0 0 4px
-    rgba(37,99,235,.13) !important;
+    0 0 0 3px rgba(37, 99, 235, .14);
 }
 
 
 /* =========================================================
-   24. MOBILE — TABLET
+   22. RESPONSIVE — TABLET
    ========================================================= */
 
 @media (max-width: 1100px) {
 
   .main .block-container {
-    max-width:
-      100% !important;
-
-    padding:
-      1.6rem 1.5rem 3rem !important;
+    max-width: 100%;
+    padding: 1.6rem 1.5rem 3rem;
   }
 
   h1 {
-    font-size:
-      2.15rem !important;
+    font-size: 2.15rem !important;
   }
 
 }
 
 
 /* =========================================================
-   25. MOBILE
+   23. RESPONSIVE — MOBILE
    ========================================================= */
 
 @media (max-width: 900px) {
 
   .main .block-container {
-    padding:
-      1.25rem 1rem 2.5rem !important;
+    padding: 1.25rem 1rem 2.5rem;
   }
+
 
   h1 {
-    font-size:
-      1.8rem !important;
+    font-size: 1.8rem !important;
   }
+
 
   h2 {
-    font-size:
-      1.45rem !important;
+    font-size: 1.45rem !important;
   }
+
 
   h3 {
-    font-size:
-      1.1rem !important;
+    font-size: 1.1rem !important;
   }
 
-  .stTabs [data-baseweb="tab-list"] {
-    width:
-      100%;
-
-    max-width:
-      100%;
-
-    overflow-x:
-      auto;
-
-    scrollbar-width:
-      none;
-  }
-
-  .stTabs [data-baseweb="tab-list"]::-webkit-scrollbar {
-    display:
-      none;
-  }
 
   .stTabs [data-baseweb="tab"] {
-    flex-shrink:
-      0;
+    padding: 0 12px;
 
-    padding:
-      0 13px !important;
-
-    font-size:
-      .88rem !important;
+    font-size: .9rem;
   }
+
 
   div[data-testid="stMetric"] {
-    padding:
-      16px !important;
+    padding: 16px;
   }
 
-  [data-testid="stFileUploaderDropzone"] {
-    min-height:
-      145px !important;
-  }
 
   [data-testid="stPlotlyChart"],
   iframe[title*="streamlit_folium"],
   iframe[title*="Folium"] {
-    border-radius:
-      14px !important;
+    border-radius: 13px !important;
   }
 
 }
 
 
 /* =========================================================
-   26. SMALL MOBILE
+   24. RESPONSIVE — SMALL MOBILE
    ========================================================= */
 
 @media (max-width: 640px) {
 
   .main .block-container {
-    padding:
-      1rem .75rem 2rem !important;
+    padding: 1rem .75rem 2rem;
   }
+
 
   h1 {
-    font-size:
-      1.55rem !important;
+    font-size: 1.65rem !important;
 
-    letter-spacing:
-      -.025em;
+    letter-spacing: -.02em;
   }
+
 
   h2 {
-    font-size:
-      1.3rem !important;
+    font-size: 1.35rem !important;
   }
 
+
   h3 {
-    font-size:
-      1.05rem !important;
+    font-size: 1.05rem !important;
   }
+
+
+  /* Full-width buttons */
 
   .stButton > button,
   .stDownloadButton > button {
-    width:
-      100% !important;
+    width: 100%;
 
-    min-height:
-      44px !important;
+    min-height: 44px;
   }
+
+
+  /* Tabs */
+
+  .stTabs [data-baseweb="tab-list"] {
+    overflow-x: auto;
+
+    scrollbar-width: none;
+
+    gap: 4px;
+  }
+
+
+  .stTabs [data-baseweb="tab-list"]::-webkit-scrollbar {
+    display: none;
+  }
+
+
+  .stTabs [data-baseweb="tab"] {
+    flex-shrink: 0;
+
+    white-space: nowrap;
+
+    padding: 0 11px;
+
+    font-size: .86rem;
+  }
+
+
+  /* Metrics */
 
   div[data-testid="stMetric"] {
-    min-height:
-      90px;
-
-    padding:
-      15px !important;
-
-    border-radius:
-      14px !important;
+    padding: 15px;
   }
+
 
   div[data-testid="stMetricValue"] {
-    font-size:
-      1.35rem !important;
+    font-size: 1.35rem;
   }
+
+
+  /* File uploader */
 
   [data-testid="stFileUploaderDropzone"] {
-    min-height:
-      135px !important;
-
-    border-radius:
-      15px !important;
+    min-height: 130px;
   }
 
+
+  /* Sidebar */
+
   section[data-testid="stSidebar"] {
-    min-width:
-      280px;
+    min-width: 270px;
+  }
+
+
+  /* Tables */
+
+  [data-testid="stDataFrame"] {
+    border-radius: 12px;
   }
 
 }
 
 
 /* =========================================================
-   27. VERY SMALL MOBILE
+   25. VERY SMALL SCREENS
    ========================================================= */
 
 @media (max-width: 420px) {
 
   .main .block-container {
-    padding:
-      .8rem .6rem 1.5rem !important;
+    padding: .85rem .6rem 1.5rem;
   }
+
 
   h1 {
-    font-size:
-      1.4rem !important;
+    font-size: 1.5rem !important;
   }
+
 
   h2 {
-    font-size:
-      1.2rem !important;
+    font-size: 1.25rem !important;
   }
+
 
   .stTabs [data-baseweb="tab"] {
-    padding:
-      0 10px !important;
+    padding: 0 9px;
 
-    font-size:
-      .82rem !important;
+    font-size: .82rem;
   }
+
 
   div[data-testid="stMetric"] {
-    padding:
-      13px !important;
+    border-radius: 13px;
 
-    border-radius:
-      13px !important;
+    padding: 13px;
+  }
+
+
+  .stButton > button,
+  .stDownloadButton > button {
+    min-height: 43px;
+
+    border-radius: 10px;
   }
 
 }
 
 
 /* =========================================================
-   28. HIDE DEFAULT STREAMLIT FOOTER
-   ========================================================= */
-
-footer {
-  visibility:
-    hidden;
-}
-
-
-/* =========================================================
-   29. SMOOTH INTERACTION
-   ========================================================= */
-
-.stButton > button,
-.stDownloadButton > button,
-[data-testid="stFileUploaderDropzone"],
-[data-testid="stExpander"],
-div[data-testid="stMetric"],
-div[data-testid="stVerticalBlockBorderWrapper"],
-[data-testid="stPlotlyChart"],
-iframe[title*="Folium"] {
-  will-change:
-    transform;
-}
-
-
-/* =========================================================
-   30. REDUCE MOTION
+   26. REDUCE MOTION
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -1476,22 +1192,275 @@ iframe[title*="Folium"] {
   *,
   *::before,
   *::after {
-    animation-duration:
-      .01ms !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
 
-    animation-iteration-count:
-      1 !important;
+    transition-duration: .01ms !important;
 
-    transition-duration:
-      .01ms !important;
-
-    scroll-behavior:
-      auto !important;
+    scroll-behavior: auto !important;
   }
 
 }
 
 
 /* =========================================================
-   END — SHEHRBEHTAR AI PREMIUM UI
+   END — ShehrBehtar AI Premium Civic-Tech UI
+   ========================================================= */
+
+/* =========================================================
+   27. VISUAL REDESIGN OVERRIDES — V3
+   Stronger contrast, richer background and clearer navigation.
+   ========================================================= */
+
+/* ---------- APP BACKGROUND ---------- */
+.stApp {
+  background:
+    radial-gradient(circle at 82% 4%, rgba(37,99,235,.13), transparent 25rem),
+    radial-gradient(circle at 42% 100%, rgba(14,165,163,.06), transparent 28rem),
+    linear-gradient(135deg, #eef4fb 0%, #f8fafc 42%, #eef3f8 100%) !important;
+}
+
+.main .block-container {
+  max-width: 1580px !important;
+  padding: 2.2rem 3.2rem 4rem !important;
+}
+
+/* ---------- MAIN HEADER ---------- */
+.main h1:first-of-type {
+  display: inline-block;
+  margin: 0 0 .55rem !important;
+  padding: .15rem 0 .25rem !important;
+  color: #0b1f3a !important;
+  font-weight: 850 !important;
+  letter-spacing: -.045em !important;
+  text-shadow: 0 1px 0 rgba(255,255,255,.8);
+}
+
+.main h1:first-of-type::after {
+  content: "";
+  display: block;
+  width: 68px;
+  height: 5px;
+  margin-top: 13px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #2563eb 0%, #14b8a6 100%);
+}
+
+.main h1:first-of-type + p {
+  max-width: 760px;
+  margin-top: .25rem !important;
+  margin-bottom: 1.55rem !important;
+  color: #64748b !important;
+  font-size: .96rem !important;
+  font-weight: 500 !important;
+}
+
+/* ---------- SIDEBAR CONTRAST ---------- */
+section[data-testid="stSidebar"] {
+  width: 310px !important;
+  min-width: 310px !important;
+  background:
+    radial-gradient(circle at 110% -5%, rgba(37,99,235,.32), transparent 17rem),
+    radial-gradient(circle at -20% 80%, rgba(20,184,166,.14), transparent 20rem),
+    linear-gradient(180deg, #071a31 0%, #061225 48%, #040b16 100%) !important;
+  border-right: 1px solid rgba(96,165,250,.16) !important;
+  box-shadow: 12px 0 36px rgba(2,12,27,.16) !important;
+}
+
+section[data-testid="stSidebar"] [data-testid="stSidebarContent"] {
+  padding-top: 1.15rem !important;
+}
+
+section[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] {
+  color: #e7f0fa !important;
+}
+
+section[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p {
+  color: #8ea5bd !important;
+}
+
+section[data-testid="stSidebar"] h1,
+section[data-testid="stSidebar"] h2,
+section[data-testid="stSidebar"] h3,
+section[data-testid="stSidebar"] h4 {
+  color: #f8fbff !important;
+  text-shadow: 0 1px 12px rgba(59,130,246,.12);
+}
+
+/* Make the navigation area feel like a distinct control panel. */
+section[data-testid="stSidebar"] [data-baseweb="radio"] {
+  margin: 5px -7px !important;
+  padding: 2px 7px !important;
+  border-radius: 14px !important;
+  transition: background .2s ease, transform .2s ease;
+}
+
+section[data-testid="stSidebar"] [data-baseweb="radio"]:hover {
+  background: rgba(59,130,246,.08) !important;
+}
+
+section[data-testid="stSidebar"] [data-baseweb="radio"] label {
+  min-height: 42px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 9px !important;
+  padding: 7px 10px !important;
+  border-radius: 11px !important;
+  color: #cbd9e9 !important;
+  font-weight: 650 !important;
+}
+
+section[data-testid="stSidebar"] [data-baseweb="radio"] label:hover {
+  color: #ffffff !important;
+  background: rgba(255,255,255,.065) !important;
+}
+
+/* Replace the visually weak default radio dot with a compact status icon. */
+section[data-testid="stSidebar"] [data-baseweb="radio"] label > div:first-child {
+  width: 22px !important;
+  height: 22px !important;
+  min-width: 22px !important;
+  border-radius: 7px !important;
+  background: rgba(59,130,246,.16) !important;
+  border: 1px solid rgba(96,165,250,.25) !important;
+  box-shadow: 0 3px 10px rgba(0,0,0,.12) !important;
+}
+
+section[data-testid="stSidebar"] [data-baseweb="radio"] label > div:first-child > div {
+  transform: scale(.55) !important;
+  background: #60a5fa !important;
+}
+
+/* Sidebar divider becomes a deliberate section separator. */
+section[data-testid="stSidebar"] hr {
+  border-top: 1px solid rgba(148,163,184,.13) !important;
+  margin: 1.35rem 0 !important;
+}
+
+/* Reports heading / custom sidebar cards */
+section[data-testid="stSidebar"] div[style*="background-color"] {
+  border-radius: 15px !important;
+  border: 1px solid rgba(96,165,250,.12) !important;
+  background: linear-gradient(145deg, rgba(15,49,86,.92), rgba(6,28,52,.94)) !important;
+  box-shadow: 0 12px 28px rgba(0,0,0,.22) !important;
+}
+
+/* ---------- TABS: MORE OBVIOUS NAVIGATION ---------- */
+.stTabs {
+  margin-top: .85rem !important;
+  margin-bottom: 1.6rem !important;
+}
+
+.stTabs [data-baseweb="tab-list"] {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 5px !important;
+  border-radius: 14px !important;
+  background: rgba(255,255,255,.72) !important;
+  border: 1px solid #dce5ef !important;
+  box-shadow: 0 5px 20px rgba(15,23,42,.055) !important;
+}
+
+.stTabs [data-baseweb="tab"] {
+  min-height: 43px !important;
+  height: 43px !important;
+  padding: 0 19px !important;
+  border-radius: 10px !important;
+  color: #64748b !important;
+  font-weight: 650 !important;
+}
+
+.stTabs [data-baseweb="tab"]:hover {
+  color: #1d4ed8 !important;
+  background: #eef5ff !important;
+}
+
+.stTabs [aria-selected="true"] {
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #2563eb, #0f8fce) !important;
+  box-shadow: 0 6px 17px rgba(37,99,235,.20) !important;
+}
+
+.stTabs [data-baseweb="tab-highlight"] {
+  display: none !important;
+}
+
+/* ---------- UPLOAD PANEL ---------- */
+[data-testid="stFileUploaderDropzone"] {
+  min-height: 180px !important;
+  border: 2px dashed #b8cbe0 !important;
+  border-radius: 20px !important;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(37,99,235,.055), transparent 13rem),
+    linear-gradient(145deg, #ffffff, #f7fbff) !important;
+  box-shadow: 0 10px 30px rgba(15,23,42,.055) !important;
+}
+
+[data-testid="stFileUploaderDropzone"]:hover {
+  border-color: #3b82f6 !important;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(37,99,235,.10), transparent 13rem),
+    linear-gradient(145deg, #ffffff, #eff6ff) !important;
+  box-shadow: 0 14px 34px rgba(37,99,235,.10) !important;
+}
+
+[data-testid="stFileUploaderDropzone"] button {
+  min-height: 44px !important;
+  padding: 0 19px !important;
+  border-radius: 12px !important;
+  border: 1px solid #bfdbfe !important;
+  color: #1d4ed8 !important;
+  background: #ffffff !important;
+  font-weight: 750 !important;
+  box-shadow: 0 5px 14px rgba(37,99,235,.08) !important;
+}
+
+/* ---------- MAP CARD ---------- */
+iframe[title*="streamlit_folium"],
+iframe[title*="Folium"] {
+  border: 2px solid #d8e3ef !important;
+  border-radius: 20px !important;
+  box-shadow: 0 12px 32px rgba(15,23,42,.10) !important;
+}
+
+/* ---------- SECTION HEADINGS ---------- */
+.main h2,
+.main h3 {
+  color: #10233d !important;
+  font-weight: 800 !important;
+}
+
+/* ---------- GENERAL BACKGROUND PANELS ---------- */
+[data-testid="stVerticalBlockBorderWrapper"] {
+  border: 1px solid #dce5ef !important;
+  border-radius: 19px !important;
+  background: rgba(255,255,255,.88) !important;
+  box-shadow: 0 8px 28px rgba(15,23,42,.06) !important;
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 900px) {
+  section[data-testid="stSidebar"] {
+    width: 285px !important;
+    min-width: 285px !important;
+  }
+
+  .main .block-container {
+    padding: 1.25rem 1rem 2.5rem !important;
+  }
+}
+
+@media (max-width: 640px) {
+  section[data-testid="stSidebar"] {
+    width: 270px !important;
+    min-width: 270px !important;
+  }
+
+  .main .block-container {
+    padding: 1rem .7rem 2rem !important;
+  }
+}
+
+/* =========================================================
+   END — V3 VISUAL OVERRIDES
    ========================================================= */
