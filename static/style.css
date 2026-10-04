@@ -3858,3 +3858,15 @@ label[data-testid="stWidgetLabel"] p {
   color: #ffffff !important;
   -webkit-text-fill-color: #ffffff !important;
 }
+
+
+/* =========================================================
+   FINAL TEXT FIX — Report New Hazard
+   Only changes the generated Report New Hazard paragraph
+   text to white. No other UI is changed.
+   ========================================================= */
+
+.stTabs [data-baseweb="tab"]:nth-child(1)::after {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
