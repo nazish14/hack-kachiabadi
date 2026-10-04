@@ -3767,3 +3767,94 @@ label[data-testid="stWidgetLabel"] p {
   -webkit-text-fill-color: #dff7ff !important;
   opacity: 1 !important;
 }
+
+
+/* =========================================================
+   FINAL — ONLY THE 2 REQUESTED BUTTON VISIBILITY FIXES
+   1. Report New Hazard tab/button
+   2. Analyze & Dispatch Report button
+   ========================================================= */
+
+/* ---------- 1. REPORT NEW HAZARD ---------- */
+
+.stTabs [data-baseweb="tab"][aria-selected="true"] {
+  background: linear-gradient(
+    135deg,
+    #087f9f 0%,
+    #10b9d2 55%,
+    #24cce5 100%
+  ) !important;
+
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+
+  border: 1px solid rgba(112, 236, 255, .70) !important;
+
+  box-shadow:
+    0 8px 24px rgba(0, 190, 220, .28),
+    0 0 18px rgba(0, 220, 240, .12),
+    inset 0 1px 0 rgba(255,255,255,.18) !important;
+}
+
+.stTabs [data-baseweb="tab"][aria-selected="true"]::after {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  text-shadow: 0 1px 5px rgba(0,0,0,.18) !important;
+}
+
+.stTabs [data-baseweb="tab"][aria-selected="true"]::before {
+  color: #ffffff !important;
+  border-color: rgba(255,255,255,.55) !important;
+  background: rgba(255,255,255,.10) !important;
+}
+
+
+/* ---------- 2. ANALYZE & DISPATCH REPORT ---------- */
+
+.stButton > button[kind="primary"],
+.stButton > button[data-testid="baseButton-primary"] {
+  background: linear-gradient(
+    135deg,
+    #079ac4 0%,
+    #08b8e3 55%,
+    #18c9ed 100%
+  ) !important;
+
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+
+  border: 1px solid rgba(109, 232, 255, .68) !important;
+
+  text-shadow: 0 1px 4px rgba(0,0,0,.20) !important;
+
+  box-shadow:
+    0 9px 25px rgba(0, 174, 219, .30),
+    0 0 20px rgba(0, 211, 239, .12),
+    inset 0 1px 0 rgba(255,255,255,.20) !important;
+}
+
+.stButton > button[kind="primary"]:hover,
+.stButton > button[data-testid="baseButton-primary"]:hover {
+  background: linear-gradient(
+    135deg,
+    #16afd2 0%,
+    #27c9e9 55%,
+    #48d8f2 100%
+  ) !important;
+
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+
+  border-color: rgba(157, 242, 255, .85) !important;
+
+  box-shadow:
+    0 11px 30px rgba(0, 190, 225, .36),
+    0 0 25px rgba(0, 220, 240, .18),
+    inset 0 1px 0 rgba(255,255,255,.26) !important;
+}
+
+.stButton > button[kind="primary"] *,
+.stButton > button[data-testid="baseButton-primary"] * {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
