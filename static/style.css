@@ -3118,3 +3118,397 @@ div[data-testid="stMetricValue"] * {
     min-width: 36px !important;
   }
 }
+
+
+/* =========================================================
+   V9 FINAL UI FIX
+   1. Make ALL important UI text clearly readable
+   2. Fix Streamlit sidebar collapse/re-open control
+   3. Keep the existing cyan-ring visual theme
+   4. CSS ONLY — no application logic changed
+   ========================================================= */
+
+
+/* =========================================================
+   1. GLOBAL TEXT CONTRAST
+   ========================================================= */
+
+.stApp,
+[data-testid="stAppViewContainer"],
+.main,
+.main .block-container {
+  color: #eaf8ff !important;
+}
+
+/* Do not use a transparent/inherited text color for widgets. */
+.main p,
+.main span,
+.main label,
+.main small,
+.main li,
+.main [data-testid="stMarkdownContainer"] {
+  color: #c9dfea !important;
+}
+
+/* Headings */
+.main h1,
+.main h2,
+.main h3,
+.main h4,
+.main h5,
+.main h6,
+[data-testid="stMarkdownContainer"] h1,
+[data-testid="stMarkdownContainer"] h2,
+[data-testid="stMarkdownContainer"] h3,
+[data-testid="stMarkdownContainer"] h4 {
+  color: #f3fbff !important;
+}
+
+
+/* =========================================================
+   2. DEPARTMENT SELECT — TEXT MUST BE VISIBLE
+   ========================================================= */
+
+label[data-testid="stWidgetLabel"],
+label[data-testid="stWidgetLabel"] p {
+  color: #e5f8ff !important;
+  -webkit-text-fill-color: #e5f8ff !important;
+  font-weight: 700 !important;
+}
+
+/* Select outer box */
+div[data-baseweb="select"] > div {
+  background: #0a1d2b !important;
+  border: 1px solid rgba(91, 193, 230, .45) !important;
+  border-radius: 10px !important;
+  color: #eaf9ff !important;
+}
+
+/* BaseWeb select internals */
+div[data-baseweb="select"],
+div[data-baseweb="select"] *,
+div[data-baseweb="select"] [role="combobox"] {
+  color: #eaf9ff !important;
+  -webkit-text-fill-color: #eaf9ff !important;
+}
+
+/* Selected value / placeholder */
+div[data-baseweb="select"] input,
+div[data-baseweb="select"] [class*="singleValue"],
+div[data-baseweb="select"] [class*="placeholder"],
+div[data-baseweb="select"] [data-baseweb="select-value"] {
+  color: #eaf9ff !important;
+  -webkit-text-fill-color: #eaf9ff !important;
+  opacity: 1 !important;
+  font-weight: 600 !important;
+}
+
+/* Input placeholder */
+div[data-baseweb="select"] input::placeholder {
+  color: #8fb4c8 !important;
+  -webkit-text-fill-color: #8fb4c8 !important;
+  opacity: 1 !important;
+}
+
+/* Select arrow */
+div[data-baseweb="select"] svg {
+  color: #aeeaff !important;
+  fill: #aeeaff !important;
+  stroke: #aeeaff !important;
+}
+
+
+/* =========================================================
+   3. SELECT HOVER / FOCUS
+   ========================================================= */
+
+div[data-baseweb="select"] > div:hover {
+  background: #102b3d !important;
+  border-color: #49cbed !important;
+}
+
+div[data-baseweb="select"] > div:focus-within {
+  background: #0d2637 !important;
+  border-color: #43d3fa !important;
+  box-shadow: 0 0 0 3px rgba(67,211,250,.12) !important;
+}
+
+
+/* =========================================================
+   4. DROPDOWN POPUP TEXT
+   ========================================================= */
+
+div[data-baseweb="popover"],
+div[data-baseweb="menu"],
+ul[role="listbox"] {
+  background: #081b29 !important;
+  border: 1px solid rgba(82, 190, 226, .28) !important;
+  box-shadow: 0 18px 45px rgba(0,0,0,.45) !important;
+}
+
+div[data-baseweb="menu"] *,
+ul[role="listbox"] *,
+li[role="option"] {
+  color: #e3f7ff !important;
+  -webkit-text-fill-color: #e3f7ff !important;
+}
+
+li[role="option"]:hover,
+li[role="option"][aria-selected="true"] {
+  background: rgba(27, 190, 226, .16) !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+
+/* =========================================================
+   5. ALL INPUTS / TEXT AREAS
+   ========================================================= */
+
+div[data-baseweb="input"] > div,
+textarea,
+input {
+  background: #091d2b !important;
+  color: #eaf9ff !important;
+  -webkit-text-fill-color: #eaf9ff !important;
+  border-color: rgba(88, 179, 216, .30) !important;
+}
+
+div[data-baseweb="input"] input,
+textarea,
+input {
+  color: #eaf9ff !important;
+  -webkit-text-fill-color: #eaf9ff !important;
+  caret-color: #4ddcff !important;
+}
+
+div[data-baseweb="input"] input::placeholder,
+textarea::placeholder,
+input::placeholder {
+  color: #7898aa !important;
+  -webkit-text-fill-color: #7898aa !important;
+  opacity: 1 !important;
+}
+
+
+/* =========================================================
+   6. BUTTON / TAB TEXT
+   ========================================================= */
+
+.stButton > button,
+.stDownloadButton > button {
+  color: #dff7ff !important;
+}
+
+.stButton > button:hover,
+.stDownloadButton > button:hover {
+  color: #ffffff !important;
+}
+
+.stTabs [data-baseweb="tab"] {
+  color: #b9cedb !important;
+}
+
+.stTabs [data-baseweb="tab"]:hover {
+  color: #e8fbff !important;
+}
+
+.stTabs [data-baseweb="tab"][aria-selected="true"] {
+  color: #ffffff !important;
+}
+
+
+/* =========================================================
+   7. SIDEBAR TEXT CONTRAST
+   ========================================================= */
+
+section[data-testid="stSidebar"] {
+  color: #dff5ff !important;
+}
+
+section[data-testid="stSidebar"] p,
+section[data-testid="stSidebar"] span,
+section[data-testid="stSidebar"] label {
+  color: #a9c3d2 !important;
+}
+
+section[data-testid="stSidebar"] h1,
+section[data-testid="stSidebar"] h2,
+section[data-testid="stSidebar"] h3,
+section[data-testid="stSidebar"] h4,
+section[data-testid="stSidebar"] strong {
+  color: #f2fbff !important;
+}
+
+
+/* =========================================================
+   8. SIDEBAR COLLAPSE BUTTON
+   ========================================================= */
+
+/*
+   IMPORTANT:
+   Streamlit has TWO states:
+   - expanded sidebar: collapse button
+   - collapsed sidebar: separate collapsed-control button
+
+   Both controls are explicitly kept visible.
+*/
+
+section[data-testid="stSidebar"] button[data-testid="stSidebarCollapseButton"],
+section[data-testid="stSidebar"] [data-testid="stSidebarCollapseButton"] button {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+
+  width: 36px !important;
+  height: 36px !important;
+  min-width: 36px !important;
+  min-height: 36px !important;
+
+  align-items: center !important;
+  justify-content: center !important;
+
+  border: 1px solid rgba(82, 211, 244, .34) !important;
+  border-radius: 10px !important;
+
+  background: rgba(8, 30, 45, .96) !important;
+  color: #c8f2ff !important;
+
+  box-shadow:
+    0 6px 20px rgba(0,0,0,.30),
+    0 0 12px rgba(35,197,232,.05) !important;
+
+  z-index: 99999 !important;
+}
+
+section[data-testid="stSidebar"] button[data-testid="stSidebarCollapseButton"]:hover,
+section[data-testid="stSidebar"] [data-testid="stSidebarCollapseButton"] button:hover {
+  background: #164159 !important;
+  border-color: #5bddff !important;
+  color: #ffffff !important;
+}
+
+
+/* =========================================================
+   9. SIDEBAR REOPEN BUTTON — CRITICAL FIX
+   ========================================================= */
+
+/* Streamlit's collapsed control must never be hidden. */
+[data-testid="stSidebarCollapsedControl"] {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+
+  position: fixed !important;
+  top: 12px !important;
+  left: 12px !important;
+
+  width: 44px !important;
+  height: 44px !important;
+
+  align-items: center !important;
+  justify-content: center !important;
+
+  z-index: 2147483647 !important;
+}
+
+/* Reopen arrow button */
+[data-testid="stSidebarCollapsedControl"] button {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  min-height: 40px !important;
+
+  align-items: center !important;
+  justify-content: center !important;
+
+  border-radius: 11px !important;
+  border: 1px solid rgba(80, 211, 246, .42) !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      #12384e,
+      #071c2b
+    ) !important;
+
+  color: #c9f4ff !important;
+
+  box-shadow:
+    0 8px 25px rgba(0,0,0,.38),
+    0 0 18px rgba(28, 205, 235, .09) !important;
+
+  cursor: pointer !important;
+}
+
+/* Reopen arrow hover */
+[data-testid="stSidebarCollapsedControl"] button:hover {
+  background:
+    linear-gradient(
+      145deg,
+      #1c526d,
+      #0d2b40
+    ) !important;
+
+  border-color: #68ddff !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Reopen arrow SVG */
+[data-testid="stSidebarCollapsedControl"] button svg {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+
+  width: 21px !important;
+  height: 21px !important;
+
+  color: #c9f4ff !important;
+  fill: none !important;
+  stroke: #c9f4ff !important;
+  stroke-width: 2.2 !important;
+}
+
+[data-testid="stSidebarCollapsedControl"] button:hover svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+
+/* =========================================================
+   10. PREVENT GENERIC CSS FROM HIDING THE CONTROLS
+   ========================================================= */
+
+[data-testid="stSidebarCollapsedControl"],
+[data-testid="stSidebarCollapsedControl"] *,
+button[data-testid="stSidebarCollapseButton"] {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+
+/* =========================================================
+   11. MOBILE
+   ========================================================= */
+
+@media (max-width: 640px) {
+  [data-testid="stSidebarCollapsedControl"] {
+    top: 9px !important;
+    left: 8px !important;
+  }
+
+  [data-testid="stSidebarCollapsedControl"] button {
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    min-height: 38px !important;
+  }
+}
