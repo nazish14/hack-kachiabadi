@@ -2078,3 +2078,1692 @@ section[data-testid="stSidebar"] ::-webkit-scrollbar-thumb:hover,
 /* =========================================================
    END — V4 DARK DASHBOARD THEME
    ========================================================= */
+
+
+/* =========================================================
+   V5 — LIGHTER TAB HOVER + MODERN ICON STYLE
+   CSS ONLY — application logic/content unchanged
+   ========================================================= */
+
+/* ---------- REPORT / SEARCH TAB COLORS ---------- */
+
+/* Normal tab */
+.stTabs [data-baseweb="tab"] {
+  background: transparent !important;
+  color: #9eb1c2 !important;
+  border: 1px solid transparent !important;
+  transition:
+    background .18s ease,
+    color .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease,
+    transform .18s ease !important;
+}
+
+/* Much lighter hover — blends with the dark dashboard */
+.stTabs [data-baseweb="tab"]:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(56, 205, 255, .16),
+    rgba(130, 113, 255, .10)
+  ) !important;
+  color: #eafaff !important;
+  border-color: rgba(72, 210, 255, .20) !important;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, .16) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Active Report New Hazard tab */
+.stTabs [data-baseweb="tab"][aria-selected="true"] {
+  background: linear-gradient(
+    135deg,
+    #159dcc,
+    #28b9e8
+  ) !important;
+  color: #f8fdff !important;
+  border-color: rgba(94, 220, 255, .55) !important;
+  box-shadow:
+    0 7px 20px rgba(24, 191, 255, .16),
+    inset 0 1px 0 rgba(255,255,255,.13) !important;
+}
+
+/* Lighter active hover */
+.stTabs [data-baseweb="tab"][aria-selected="true"]:hover {
+  background: linear-gradient(
+    135deg,
+    #35c9f4,
+    #65d7f7
+  ) !important;
+  color: #062033 !important;
+  border-color: rgba(145, 235, 255, .75) !important;
+  box-shadow:
+    0 8px 22px rgba(24, 191, 255, .20),
+    inset 0 1px 0 rgba(255,255,255,.28) !important;
+}
+
+
+/* ---------- MODERN TAB ICONS ----------
+   Replaces the visible emoji-style tab labels with clean,
+   dashboard-style CSS icons while preserving the actual
+   Streamlit tab functionality.
+*/
+
+.stTabs [data-baseweb="tab"]:nth-child(1),
+.stTabs [data-baseweb="tab"]:nth-child(2) {
+  font-size: 0 !important;
+  gap: 8px !important;
+}
+
+/* Report icon */
+.stTabs [data-baseweb="tab"]:nth-child(1)::before {
+  content: "＋";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border: 1px solid rgba(112, 220, 255, .48);
+  border-radius: 7px;
+  color: #62d9ff;
+  background: rgba(24, 191, 255, .10);
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+/* Report label */
+.stTabs [data-baseweb="tab"]:nth-child(1)::after {
+  content: "Report New Hazard";
+  font-size: .88rem;
+  font-weight: 650;
+  color: inherit;
+  letter-spacing: -.01em;
+}
+
+/* Search icon */
+.stTabs [data-baseweb="tab"]:nth-child(2)::before {
+  content: "⌕";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border: 1px solid rgba(150, 168, 190, .25);
+  border-radius: 7px;
+  color: #a8bfd2;
+  background: rgba(255,255,255,.035);
+  font-family: "Segoe UI Symbol", Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+/* Search label */
+.stTabs [data-baseweb="tab"]:nth-child(2)::after {
+  content: "Search Any Ticket";
+  font-size: .88rem;
+  font-weight: 650;
+  color: inherit;
+  letter-spacing: -.01em;
+}
+
+/* Active report icon */
+.stTabs [data-baseweb="tab"][aria-selected="true"]:nth-child(1)::before {
+  color: #07314a;
+  background: rgba(255,255,255,.22);
+  border-color: rgba(255,255,255,.35);
+}
+
+/* Hover report icon */
+.stTabs [data-baseweb="tab"]:nth-child(1):hover::before {
+  color: #dff9ff;
+  background: rgba(255,255,255,.11);
+  border-color: rgba(155,235,255,.45);
+}
+
+/* Hover search icon */
+.stTabs [data-baseweb="tab"]:nth-child(2):hover::before {
+  color: #dff9ff;
+  background: rgba(24,191,255,.10);
+  border-color: rgba(90,214,255,.35);
+}
+
+
+/* ---------- MODERN SIDEBAR RADIO ICONS ---------- */
+
+section[data-testid="stSidebar"] [data-baseweb="radio"] > div {
+  border-radius: 12px !important;
+  min-height: 38px !important;
+}
+
+section[data-testid="stSidebar"] [data-baseweb="radio"] [role="radio"] {
+  width: 15px !important;
+  height: 15px !important;
+  min-width: 15px !important;
+  border-radius: 50% !important;
+  border: 1.5px solid #587187 !important;
+  background: #091522 !important;
+  box-shadow: inset 0 0 0 3px #091522 !important;
+}
+
+section[data-testid="stSidebar"] [data-baseweb="radio"] [aria-checked="true"] {
+  border-color: #55d7ff !important;
+  background: #55d7ff !important;
+  box-shadow:
+    inset 0 0 0 3px #091522,
+    0 0 0 4px rgba(85,215,255,.08) !important;
+}
+
+
+/* ---------- BUTTON HOVER: LIGHTER + MORE PREMIUM ---------- */
+
+.stButton > button:hover,
+.stDownloadButton > button:hover {
+  background: linear-gradient(
+    135deg,
+    #16334c,
+    #214762
+  ) !important;
+  color: #f1fbff !important;
+  border-color: rgba(91, 214, 255, .38) !important;
+  box-shadow:
+    0 8px 20px rgba(0,0,0,.18),
+    0 0 0 1px rgba(24,191,255,.035) !important;
+  transform: translateY(-1px) !important;
+}
+
+.stButton > button[kind="primary"]:hover,
+.stButton > button[data-testid="baseButton-primary"]:hover {
+  background: linear-gradient(
+    135deg,
+    #42cdf2,
+    #7addf7
+  ) !important;
+  color: #062033 !important;
+  border-color: #8de5ff !important;
+  box-shadow:
+    0 9px 24px rgba(24,191,255,.18),
+    0 0 20px rgba(24,191,255,.07) !important;
+}
+
+
+/* ---------- UPLOAD BUTTON ICON ---------- */
+
+[data-testid="stFileUploaderDropzone"] button {
+  background: #102a40 !important;
+  color: #a9eaff !important;
+  border-color: rgba(82,214,255,.30) !important;
+}
+
+[data-testid="stFileUploaderDropzone"] button:hover {
+  background: #173a55 !important;
+  color: #e7faff !important;
+  border-color: rgba(102,222,255,.55) !important;
+}
+
+[data-testid="stFileUploaderDropzone"] button svg {
+  color: #61d9ff !important;
+  stroke: #61d9ff !important;
+}
+
+
+/* ---------- CLEANER FOCUS STATE ---------- */
+
+.stTabs [data-baseweb="tab"]:focus-visible,
+.stButton > button:focus-visible,
+.stDownloadButton > button:focus-visible {
+  outline: 2px solid rgba(85,215,255,.65) !important;
+  outline-offset: 2px !important;
+}
+
+
+/* =========================================================
+   V6 — DEFINITIVE TAB FIX
+   Hides original emoji/icon labels and creates clean
+   dashboard-style CSS icons.
+   ========================================================= */
+
+/* Tab bar */
+.stTabs [data-baseweb="tab-list"] {
+  background: rgba(7, 18, 30, .94) !important;
+  border: 1px solid rgba(105, 151, 185, .16) !important;
+  border-radius: 14px !important;
+  padding: 5px !important;
+  gap: 5px !important;
+}
+
+/* Every tab gets a clean base appearance */
+.stTabs [data-baseweb="tab"] {
+  position: relative !important;
+  height: 43px !important;
+  min-width: 155px !important;
+  padding: 0 14px !important;
+  border-radius: 9px !important;
+  border: 1px solid transparent !important;
+  background: transparent !important;
+  color: #9db1c2 !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  overflow: hidden !important;
+}
+
+/*
+   IMPORTANT:
+   Hide ALL original tab content so the old 🚀 / 🔍 emojis
+   cannot remain visible.
+*/
+.stTabs [data-baseweb="tab"] > *,
+.stTabs [data-baseweb="tab"] span,
+.stTabs [data-baseweb="tab"] div,
+.stTabs [data-baseweb="tab"] p {
+  font-size: 0 !important;
+  line-height: 0 !important;
+  color: transparent !important;
+}
+
+/* ---------- TAB 1: REPORT ---------- */
+
+.stTabs [data-baseweb="tab"]:nth-of-type(1)::before {
+  content: "＋" !important;
+  position: absolute !important;
+  left: 12px !important;
+  top: 9px !important;
+
+  width: 23px !important;
+  height: 23px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  border: 1px solid rgba(75, 210, 255, .34) !important;
+  border-radius: 7px !important;
+
+  background: rgba(24, 191, 255, .09) !important;
+  color: #54d7ff !important;
+
+  font-family: Arial, sans-serif !important;
+  font-size: 17px !important;
+  line-height: 23px !important;
+  font-weight: 400 !important;
+}
+
+.stTabs [data-baseweb="tab"]:nth-of-type(1)::after {
+  content: "Report New Hazard" !important;
+  position: absolute !important;
+  left: 43px !important;
+  top: 0 !important;
+
+  height: 43px !important;
+
+  display: flex !important;
+  align-items: center !important;
+
+  color: #a9bdce !important;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-size: 13px !important;
+  line-height: 1 !important;
+  font-weight: 600 !important;
+  letter-spacing: -.01em !important;
+  white-space: nowrap !important;
+}
+
+/* ---------- TAB 2: SEARCH ---------- */
+
+.stTabs [data-baseweb="tab"]:nth-of-type(2)::before {
+  content: "⌕" !important;
+  position: absolute !important;
+  left: 12px !important;
+  top: 9px !important;
+
+  width: 23px !important;
+  height: 23px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  border: 1px solid rgba(132, 164, 190, .25) !important;
+  border-radius: 7px !important;
+
+  background: rgba(255,255,255,.035) !important;
+  color: #9fb9cd !important;
+
+  font-family: "Segoe UI Symbol", Arial, sans-serif !important;
+  font-size: 18px !important;
+  line-height: 23px !important;
+}
+
+.stTabs [data-baseweb="tab"]:nth-of-type(2)::after {
+  content: "Search Any Ticket" !important;
+  position: absolute !important;
+  left: 43px !important;
+  top: 0 !important;
+
+  height: 43px !important;
+
+  display: flex !important;
+  align-items: center !important;
+
+  color: #9eb2c4 !important;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-size: 13px !important;
+  line-height: 1 !important;
+  font-weight: 600 !important;
+  letter-spacing: -.01em !important;
+  white-space: nowrap !important;
+}
+
+
+/* ---------- REPORT ACTIVE STATE ---------- */
+
+.stTabs [data-baseweb="tab"][aria-selected="true"] {
+  background: linear-gradient(135deg, #108ebc, #1db2df) !important;
+  border-color: rgba(82, 215, 255, .42) !important;
+  box-shadow:
+    0 6px 18px rgba(24,191,255,.13),
+    inset 0 1px 0 rgba(255,255,255,.12) !important;
+}
+
+.stTabs [data-baseweb="tab"][aria-selected="true"]:nth-of-type(1)::before {
+  background: rgba(255,255,255,.15) !important;
+  border-color: rgba(255,255,255,.28) !important;
+  color: #ffffff !important;
+}
+
+.stTabs [data-baseweb="tab"][aria-selected="true"]:nth-of-type(1)::after {
+  color: #ffffff !important;
+}
+
+
+/* ---------- LIGHT HOVER — NOT TOO BRIGHT ---------- */
+
+.stTabs [data-baseweb="tab"]:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(42, 171, 218, .20),
+    rgba(91, 76, 170, .12)
+  ) !important;
+
+  border-color: rgba(73, 207, 250, .24) !important;
+  box-shadow: 0 5px 15px rgba(0,0,0,.13) !important;
+}
+
+.stTabs [data-baseweb="tab"]:hover::before {
+  border-color: rgba(100, 221, 255, .42) !important;
+  background: rgba(24,191,255,.12) !important;
+  color: #d8f7ff !important;
+}
+
+.stTabs [data-baseweb="tab"]:hover::after {
+  color: #e4f8ff !important;
+}
+
+
+/* Active + hover should be light, not neon */
+.stTabs [data-baseweb="tab"][aria-selected="true"]:hover {
+  background: linear-gradient(
+    135deg,
+    #28b7e5,
+    #54c9ec
+  ) !important;
+  border-color: rgba(144, 232, 255, .60) !important;
+}
+
+.stTabs [data-baseweb="tab"][aria-selected="true"]:hover::before {
+  background: rgba(255,255,255,.22) !important;
+  border-color: rgba(255,255,255,.40) !important;
+  color: #062338 !important;
+}
+
+
+/* ---------- REMOVE STREAMLIT DEFAULT TAB UNDERLINE ---------- */
+
+.stTabs [data-baseweb="tab-highlight"],
+.stTabs [data-baseweb="tab-border"] {
+  display: none !important;
+}
+
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 640px) {
+  .stTabs [data-baseweb="tab"] {
+    min-width: 145px !important;
+  }
+
+  .stTabs [data-baseweb="tab"]:nth-of-type(1)::after,
+  .stTabs [data-baseweb="tab"]:nth-of-type(2)::after {
+    font-size: 12px !important;
+  }
+}
+
+
+/* =========================================================
+   V7 — CYAN CONCENTRIC RINGS BACKGROUND
+   Inspired by the supplied reference image.
+   CSS-only. No application logic changed.
+   ========================================================= */
+
+/* ---------- APP BACKGROUND ---------- */
+
+.stApp {
+  position: relative !important;
+  overflow: hidden !important;
+
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(18, 207, 211, .24) 0%,
+      rgba(7, 99, 105, .18) 14%,
+      rgba(3, 42, 51, .12) 32%,
+      transparent 52%
+    ),
+    linear-gradient(
+      135deg,
+      #021a22 0%,
+      #06343b 42%,
+      #04272f 72%,
+      #01161e 100%
+    ) !important;
+
+  color: #f3fdff !important;
+}
+
+
+/* ---------- RING FIELD ---------- */
+
+/*
+   Multiple concentric radial-gradient rings create the
+   same futuristic circular pattern as the reference image.
+*/
+
+.stApp::before {
+  content: "" !important;
+  position: fixed !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+
+  width: 1050px !important;
+  height: 1050px !important;
+
+  left: 52% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+
+  border-radius: 50% !important;
+
+  opacity: .72 !important;
+
+  background:
+    repeating-radial-gradient(
+      circle at center,
+      transparent 0px,
+      transparent 18px,
+      rgba(17, 239, 235, .86) 20px,
+      rgba(17, 239, 235, .86) 22px,
+      transparent 24px,
+      transparent 39px
+    ) !important;
+
+  filter:
+    drop-shadow(0 0 5px rgba(0, 245, 239, .42))
+    drop-shadow(0 0 18px rgba(0, 213, 221, .18)) !important;
+
+  mask-image: radial-gradient(
+    circle,
+    black 0%,
+    black 72%,
+    transparent 100%
+  ) !important;
+}
+
+
+/* ---------- SECOND RING LAYER ---------- */
+
+.stApp::after {
+  content: "" !important;
+  position: fixed !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+
+  width: 1450px !important;
+  height: 1450px !important;
+
+  left: 52% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+
+  border-radius: 50% !important;
+
+  opacity: .26 !important;
+
+  background:
+    repeating-radial-gradient(
+      circle at center,
+      transparent 0px,
+      transparent 42px,
+      rgba(28, 211, 222, .75) 44px,
+      rgba(28, 211, 222, .75) 46px,
+      transparent 48px,
+      transparent 73px
+    ) !important;
+
+  filter: blur(.15px) !important;
+}
+
+
+/* ---------- CENTER GLOW ---------- */
+
+[data-testid="stAppViewContainer"]::before {
+  content: "" !important;
+  position: fixed !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+
+  width: 430px !important;
+  height: 430px !important;
+
+  left: 52% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+
+  border-radius: 50% !important;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(18, 226, 222, .22) 0%,
+      rgba(11, 176, 185, .12) 28%,
+      rgba(4, 67, 76, .04) 55%,
+      transparent 72%
+    ) !important;
+
+  filter: blur(10px) !important;
+}
+
+
+/* ---------- KEEP CONTENT ABOVE BACKGROUND ---------- */
+
+[data-testid="stAppViewContainer"] > *,
+.main,
+.main .block-container,
+section[data-testid="stSidebar"] {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+
+/* ---------- DARK GLASS MAIN CONTENT ---------- */
+
+.main .block-container {
+  background: linear-gradient(
+    135deg,
+    rgba(3, 18, 28, .72),
+    rgba(3, 25, 34, .52)
+  ) !important;
+
+  border-left: 1px solid rgba(74, 220, 225, .07) !important;
+  border-right: 1px solid rgba(74, 220, 225, .045) !important;
+}
+
+
+/* ---------- GLASS CARDS ON RING BACKGROUND ---------- */
+
+div[data-testid="stMetric"],
+div[data-testid="stVerticalBlockBorderWrapper"],
+[data-testid="stExpander"],
+[data-testid="stPlotlyChart"],
+[data-testid="stDataFrame"] {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(8, 33, 45, .90),
+      rgba(3, 22, 31, .92)
+    ) !important;
+
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+
+/* ---------- SIDEBAR REMAINS DARK FOR CONTRAST ---------- */
+
+section[data-testid="stSidebar"] {
+  background:
+    radial-gradient(
+      circle at 90% 8%,
+      rgba(18, 210, 220, .10),
+      transparent 18rem
+    ),
+    linear-gradient(
+      180deg,
+      #02131d 0%,
+      #020c14 55%,
+      #010810 100%
+    ) !important;
+
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+}
+
+
+/* ---------- RING POSITION ON SMALL SCREENS ---------- */
+
+@media (max-width: 900px) {
+  .stApp::before,
+  .stApp::after {
+    left: 58% !important;
+    top: 46% !important;
+    transform: translate(-50%, -50%) scale(.78) !important;
+  }
+
+  [data-testid="stAppViewContainer"]::before {
+    left: 58% !important;
+    top: 46% !important;
+    transform: translate(-50%, -50%) scale(.78) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .stApp::before,
+  .stApp::after {
+    left: 65% !important;
+    top: 45% !important;
+    transform: translate(-50%, -50%) scale(.58) !important;
+    opacity: .50 !important;
+  }
+
+  [data-testid="stAppViewContainer"]::before {
+    left: 65% !important;
+    top: 45% !important;
+    transform: translate(-50%, -50%) scale(.58) !important;
+  }
+
+  .main .block-container {
+    background: rgba(3, 18, 27, .48) !important;
+  }
+}
+
+
+/* ---------- REDUCED MOTION ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .stApp::before,
+  .stApp::after {
+    filter: none !important;
+  }
+}
+
+
+/* =========================================================
+   V8 — TEXT VISIBILITY + SIDEBAR COLLAPSE/REOPEN FIX
+   Visual-only CSS. No application logic changed.
+   ========================================================= */
+
+/* ---------- GLOBAL TEXT VISIBILITY ---------- */
+
+/* Main page text */
+.stApp,
+.main,
+.main .block-container,
+[data-testid="stAppViewContainer"] {
+  color: #eefaff !important;
+}
+
+.stApp p,
+.stApp span,
+.stApp label,
+.stApp small,
+.stApp div,
+.stApp li {
+  color: inherit;
+}
+
+
+/* ---------- SELECT / DROPDOWN TEXT ---------- */
+
+/* The selected department was becoming almost white/invisible.
+   Force readable cyan-white text on the dark theme. */
+
+div[data-baseweb="select"] {
+  color: #e9f8ff !important;
+}
+
+div[data-baseweb="select"] > div {
+  background: #0b1d2c !important;
+  border: 1px solid rgba(96, 177, 221, .30) !important;
+  color: #e9f8ff !important;
+}
+
+div[data-baseweb="select"] [role="combobox"],
+div[data-baseweb="select"] input,
+div[data-baseweb="select"] [aria-selected],
+div[data-baseweb="select"] span,
+div[data-baseweb="select"] div {
+  color: #e9f8ff !important;
+  -webkit-text-fill-color: #e9f8ff !important;
+}
+
+/* Selected value */
+div[data-baseweb="select"] [data-baseweb="select-value"],
+div[data-baseweb="select"] [data-testid="stMarkdownContainer"],
+div[data-baseweb="select"] [class*="singleValue"] {
+  color: #e9f8ff !important;
+  -webkit-text-fill-color: #e9f8ff !important;
+  opacity: 1 !important;
+  font-weight: 600 !important;
+}
+
+/* Dropdown arrow */
+div[data-baseweb="select"] svg {
+  color: #bfeeff !important;
+  fill: #bfeeff !important;
+}
+
+
+/* ---------- SELECT FOCUS / HOVER ---------- */
+
+div[data-baseweb="select"] > div:hover {
+  border-color: rgba(74, 211, 255, .62) !important;
+  background: #10283a !important;
+}
+
+div[data-baseweb="select"] > div:focus-within {
+  border-color: #35c9f4 !important;
+  box-shadow: 0 0 0 3px rgba(53,201,244,.12) !important;
+}
+
+
+/* ---------- DROPDOWN MENU ---------- */
+
+div[data-baseweb="popover"],
+div[data-baseweb="menu"],
+ul[role="listbox"] {
+  background: #0b1c2b !important;
+  border: 1px solid rgba(93, 173, 211, .22) !important;
+  box-shadow: 0 16px 40px rgba(0,0,0,.38) !important;
+}
+
+div[data-baseweb="menu"] *,
+ul[role="listbox"] *,
+li[role="option"] {
+  color: #dff6ff !important;
+  -webkit-text-fill-color: #dff6ff !important;
+}
+
+li[role="option"]:hover,
+li[role="option"][aria-selected="true"] {
+  background: rgba(24,191,255,.14) !important;
+  color: #ffffff !important;
+}
+
+
+/* ---------- ALL INPUT TEXT ---------- */
+
+div[data-baseweb="input"] input,
+textarea,
+input {
+  color: #e9f8ff !important;
+  -webkit-text-fill-color: #e9f8ff !important;
+  caret-color: #50d7ff !important;
+}
+
+div[data-baseweb="input"] input::placeholder,
+textarea::placeholder,
+input::placeholder {
+  color: #7592a8 !important;
+  -webkit-text-fill-color: #7592a8 !important;
+  opacity: 1 !important;
+}
+
+
+/* ---------- SIDEBAR COLLAPSE BUTTON ---------- */
+
+/*
+   Do NOT hide Streamlit's collapse/reopen controls.
+   Give both states a visible glass button so the sidebar
+   can always be opened again.
+*/
+
+/* Expanded sidebar collapse control */
+section[data-testid="stSidebar"]
+button[data-testid="stSidebarCollapseButton"],
+section[data-testid="stSidebar"] [data-testid="stSidebarCollapseButton"] button {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+
+  width: 34px !important;
+  height: 34px !important;
+  min-width: 34px !important;
+
+  align-items: center !important;
+  justify-content: center !important;
+
+  border-radius: 10px !important;
+  border: 1px solid rgba(85, 210, 244, .20) !important;
+  background: rgba(9, 29, 43, .90) !important;
+  color: #bdeeff !important;
+
+  box-shadow: 0 5px 16px rgba(0,0,0,.24) !important;
+  z-index: 9999 !important;
+}
+
+section[data-testid="stSidebar"]
+button[data-testid="stSidebarCollapseButton"]:hover,
+section[data-testid="stSidebar"]
+[data-testid="stSidebarCollapseButton"] button:hover {
+  background: #15364c !important;
+  border-color: rgba(83, 215, 255, .50) !important;
+  color: #ffffff !important;
+}
+
+
+/* ---------- COLLAPSED SIDEBAR REOPEN CONTROL ---------- */
+
+/* Streamlit uses this container while sidebar is collapsed. */
+[data-testid="stSidebarCollapsedControl"] {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+
+  position: fixed !important;
+  top: 14px !important;
+  left: 12px !important;
+
+  z-index: 100000 !important;
+}
+
+
+/* Reopen button */
+[data-testid="stSidebarCollapsedControl"] button {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+
+  width: 38px !important;
+  height: 38px !important;
+  min-width: 38px !important;
+
+  align-items: center !important;
+  justify-content: center !important;
+
+  border-radius: 11px !important;
+  border: 1px solid rgba(82, 214, 255, .32) !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(13, 42, 60, .98),
+      rgba(5, 22, 34, .98)
+    ) !important;
+
+  color: #c9f3ff !important;
+
+  box-shadow:
+    0 8px 24px rgba(0,0,0,.34),
+    0 0 14px rgba(24,191,255,.06) !important;
+
+  cursor: pointer !important;
+}
+
+[data-testid="stSidebarCollapsedControl"] button:hover {
+  background:
+    linear-gradient(
+      145deg,
+      #16425b,
+      #0d2d42
+    ) !important;
+
+  border-color: rgba(91, 221, 255, .62) !important;
+  color: #ffffff !important;
+
+  transform: translateY(-1px);
+}
+
+
+/* Make the reopen SVG clearly visible */
+[data-testid="stSidebarCollapsedControl"] button svg {
+  width: 20px !important;
+  height: 20px !important;
+  color: #bdeeff !important;
+  fill: none !important;
+  stroke: #bdeeff !important;
+  stroke-width: 2 !important;
+}
+
+[data-testid="stSidebarCollapsedControl"] button:hover svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+
+/* ---------- SIDEBAR CONTENT TEXT ---------- */
+
+section[data-testid="stSidebar"] {
+  color: #dceffc !important;
+}
+
+section[data-testid="stSidebar"] p,
+section[data-testid="stSidebar"] span,
+section[data-testid="stSidebar"] label {
+  color: #a9bfd0 !important;
+}
+
+section[data-testid="stSidebar"] h1,
+section[data-testid="stSidebar"] h2,
+section[data-testid="stSidebar"] h3,
+section[data-testid="stSidebar"] h4,
+section[data-testid="stSidebar"] strong {
+  color: #f2fbff !important;
+}
+
+
+/* ---------- DEPARTMENT LABEL ---------- */
+
+label[data-testid="stWidgetLabel"] p,
+label[data-testid="stWidgetLabel"] {
+  color: #dff7ff !important;
+  -webkit-text-fill-color: #dff7ff !important;
+  font-weight: 700 !important;
+}
+
+
+/* ---------- METRIC / CARD TEXT ---------- */
+
+div[data-testid="stMetricLabel"],
+div[data-testid="stMetricLabel"] * {
+  color: #91aec1 !important;
+}
+
+div[data-testid="stMetricValue"],
+div[data-testid="stMetricValue"] * {
+  color: #f2fbff !important;
+}
+
+
+/* ---------- HEADINGS ---------- */
+
+.main h1,
+.main h2,
+.main h3,
+.main h4 {
+  color: #f4fcff !important;
+}
+
+
+/* ---------- MAP / SECTION HEADINGS ---------- */
+
+[data-testid="stMarkdownContainer"] h1,
+[data-testid="stMarkdownContainer"] h2,
+[data-testid="stMarkdownContainer"] h3,
+[data-testid="stMarkdownContainer"] h4 {
+  color: #f2fbff !important;
+}
+
+
+/* ---------- MOBILE SIDEBAR CONTROL ---------- */
+
+@media (max-width: 640px) {
+  [data-testid="stSidebarCollapsedControl"] {
+    top: 10px !important;
+    left: 8px !important;
+  }
+
+  [data-testid="stSidebarCollapsedControl"] button {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+  }
+}
+
+
+/* =========================================================
+   V9 FINAL UI FIX
+   1. Make ALL important UI text clearly readable
+   2. Fix Streamlit sidebar collapse/re-open control
+   3. Keep the existing cyan-ring visual theme
+   4. CSS ONLY — no application logic changed
+   ========================================================= */
+
+
+/* =========================================================
+   1. GLOBAL TEXT CONTRAST
+   ========================================================= */
+
+.stApp,
+[data-testid="stAppViewContainer"],
+.main,
+.main .block-container {
+  color: #eaf8ff !important;
+}
+
+/* Do not use a transparent/inherited text color for widgets. */
+.main p,
+.main span,
+.main label,
+.main small,
+.main li,
+.main [data-testid="stMarkdownContainer"] {
+  color: #c9dfea !important;
+}
+
+/* Headings */
+.main h1,
+.main h2,
+.main h3,
+.main h4,
+.main h5,
+.main h6,
+[data-testid="stMarkdownContainer"] h1,
+[data-testid="stMarkdownContainer"] h2,
+[data-testid="stMarkdownContainer"] h3,
+[data-testid="stMarkdownContainer"] h4 {
+  color: #f3fbff !important;
+}
+
+
+/* =========================================================
+   2. DEPARTMENT SELECT — TEXT MUST BE VISIBLE
+   ========================================================= */
+
+label[data-testid="stWidgetLabel"],
+label[data-testid="stWidgetLabel"] p {
+  color: #e5f8ff !important;
+  -webkit-text-fill-color: #e5f8ff !important;
+  font-weight: 700 !important;
+}
+
+/* Select outer box */
+div[data-baseweb="select"] > div {
+  background: #0a1d2b !important;
+  border: 1px solid rgba(91, 193, 230, .45) !important;
+  border-radius: 10px !important;
+  color: #eaf9ff !important;
+}
+
+/* BaseWeb select internals */
+div[data-baseweb="select"],
+div[data-baseweb="select"] *,
+div[data-baseweb="select"] [role="combobox"] {
+  color: #eaf9ff !important;
+  -webkit-text-fill-color: #eaf9ff !important;
+}
+
+/* Selected value / placeholder */
+div[data-baseweb="select"] input,
+div[data-baseweb="select"] [class*="singleValue"],
+div[data-baseweb="select"] [class*="placeholder"],
+div[data-baseweb="select"] [data-baseweb="select-value"] {
+  color: #eaf9ff !important;
+  -webkit-text-fill-color: #eaf9ff !important;
+  opacity: 1 !important;
+  font-weight: 600 !important;
+}
+
+/* Input placeholder */
+div[data-baseweb="select"] input::placeholder {
+  color: #8fb4c8 !important;
+  -webkit-text-fill-color: #8fb4c8 !important;
+  opacity: 1 !important;
+}
+
+/* Select arrow */
+div[data-baseweb="select"] svg {
+  color: #aeeaff !important;
+  fill: #aeeaff !important;
+  stroke: #aeeaff !important;
+}
+
+
+/* =========================================================
+   3. SELECT HOVER / FOCUS
+   ========================================================= */
+
+div[data-baseweb="select"] > div:hover {
+  background: #102b3d !important;
+  border-color: #49cbed !important;
+}
+
+div[data-baseweb="select"] > div:focus-within {
+  background: #0d2637 !important;
+  border-color: #43d3fa !important;
+  box-shadow: 0 0 0 3px rgba(67,211,250,.12) !important;
+}
+
+
+/* =========================================================
+   4. DROPDOWN POPUP TEXT
+   ========================================================= */
+
+div[data-baseweb="popover"],
+div[data-baseweb="menu"],
+ul[role="listbox"] {
+  background: #081b29 !important;
+  border: 1px solid rgba(82, 190, 226, .28) !important;
+  box-shadow: 0 18px 45px rgba(0,0,0,.45) !important;
+}
+
+div[data-baseweb="menu"] *,
+ul[role="listbox"] *,
+li[role="option"] {
+  color: #e3f7ff !important;
+  -webkit-text-fill-color: #e3f7ff !important;
+}
+
+li[role="option"]:hover,
+li[role="option"][aria-selected="true"] {
+  background: rgba(27, 190, 226, .16) !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+
+/* =========================================================
+   5. ALL INPUTS / TEXT AREAS
+   ========================================================= */
+
+div[data-baseweb="input"] > div,
+textarea,
+input {
+  background: #091d2b !important;
+  color: #eaf9ff !important;
+  -webkit-text-fill-color: #eaf9ff !important;
+  border-color: rgba(88, 179, 216, .30) !important;
+}
+
+div[data-baseweb="input"] input,
+textarea,
+input {
+  color: #eaf9ff !important;
+  -webkit-text-fill-color: #eaf9ff !important;
+  caret-color: #4ddcff !important;
+}
+
+div[data-baseweb="input"] input::placeholder,
+textarea::placeholder,
+input::placeholder {
+  color: #7898aa !important;
+  -webkit-text-fill-color: #7898aa !important;
+  opacity: 1 !important;
+}
+
+
+/* =========================================================
+   6. BUTTON / TAB TEXT
+   ========================================================= */
+
+.stButton > button,
+.stDownloadButton > button {
+  color: #dff7ff !important;
+}
+
+.stButton > button:hover,
+.stDownloadButton > button:hover {
+  color: #ffffff !important;
+}
+
+.stTabs [data-baseweb="tab"] {
+  color: #b9cedb !important;
+}
+
+.stTabs [data-baseweb="tab"]:hover {
+  color: #e8fbff !important;
+}
+
+.stTabs [data-baseweb="tab"][aria-selected="true"] {
+  color: #ffffff !important;
+}
+
+
+/* =========================================================
+   7. SIDEBAR TEXT CONTRAST
+   ========================================================= */
+
+section[data-testid="stSidebar"] {
+  color: #dff5ff !important;
+}
+
+section[data-testid="stSidebar"] p,
+section[data-testid="stSidebar"] span,
+section[data-testid="stSidebar"] label {
+  color: #a9c3d2 !important;
+}
+
+section[data-testid="stSidebar"] h1,
+section[data-testid="stSidebar"] h2,
+section[data-testid="stSidebar"] h3,
+section[data-testid="stSidebar"] h4,
+section[data-testid="stSidebar"] strong {
+  color: #f2fbff !important;
+}
+
+
+/* =========================================================
+   8. SIDEBAR COLLAPSE BUTTON
+   ========================================================= */
+
+/*
+   IMPORTANT:
+   Streamlit has TWO states:
+   - expanded sidebar: collapse button
+   - collapsed sidebar: separate collapsed-control button
+
+   Both controls are explicitly kept visible.
+*/
+
+section[data-testid="stSidebar"] button[data-testid="stSidebarCollapseButton"],
+section[data-testid="stSidebar"] [data-testid="stSidebarCollapseButton"] button {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+
+  width: 36px !important;
+  height: 36px !important;
+  min-width: 36px !important;
+  min-height: 36px !important;
+
+  align-items: center !important;
+  justify-content: center !important;
+
+  border: 1px solid rgba(82, 211, 244, .34) !important;
+  border-radius: 10px !important;
+
+  background: rgba(8, 30, 45, .96) !important;
+  color: #c8f2ff !important;
+
+  box-shadow:
+    0 6px 20px rgba(0,0,0,.30),
+    0 0 12px rgba(35,197,232,.05) !important;
+
+  z-index: 99999 !important;
+}
+
+section[data-testid="stSidebar"] button[data-testid="stSidebarCollapseButton"]:hover,
+section[data-testid="stSidebar"] [data-testid="stSidebarCollapseButton"] button:hover {
+  background: #164159 !important;
+  border-color: #5bddff !important;
+  color: #ffffff !important;
+}
+
+
+/* =========================================================
+   9. SIDEBAR REOPEN BUTTON — CRITICAL FIX
+   ========================================================= */
+
+/* Streamlit's collapsed control must never be hidden. */
+[data-testid="stSidebarCollapsedControl"] {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+
+  position: fixed !important;
+  top: 12px !important;
+  left: 12px !important;
+
+  width: 44px !important;
+  height: 44px !important;
+
+  align-items: center !important;
+  justify-content: center !important;
+
+  z-index: 2147483647 !important;
+}
+
+/* Reopen arrow button */
+[data-testid="stSidebarCollapsedControl"] button {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  min-height: 40px !important;
+
+  align-items: center !important;
+  justify-content: center !important;
+
+  border-radius: 11px !important;
+  border: 1px solid rgba(80, 211, 246, .42) !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      #12384e,
+      #071c2b
+    ) !important;
+
+  color: #c9f4ff !important;
+
+  box-shadow:
+    0 8px 25px rgba(0,0,0,.38),
+    0 0 18px rgba(28, 205, 235, .09) !important;
+
+  cursor: pointer !important;
+}
+
+/* Reopen arrow hover */
+[data-testid="stSidebarCollapsedControl"] button:hover {
+  background:
+    linear-gradient(
+      145deg,
+      #1c526d,
+      #0d2b40
+    ) !important;
+
+  border-color: #68ddff !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Reopen arrow SVG */
+[data-testid="stSidebarCollapsedControl"] button svg {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+
+  width: 21px !important;
+  height: 21px !important;
+
+  color: #c9f4ff !important;
+  fill: none !important;
+  stroke: #c9f4ff !important;
+  stroke-width: 2.2 !important;
+}
+
+[data-testid="stSidebarCollapsedControl"] button:hover svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+
+/* =========================================================
+   10. PREVENT GENERIC CSS FROM HIDING THE CONTROLS
+   ========================================================= */
+
+[data-testid="stSidebarCollapsedControl"],
+[data-testid="stSidebarCollapsedControl"] *,
+button[data-testid="stSidebarCollapseButton"] {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+
+/* =========================================================
+   11. MOBILE
+   ========================================================= */
+
+@media (max-width: 640px) {
+  [data-testid="stSidebarCollapsedControl"] {
+    top: 9px !important;
+    left: 8px !important;
+  }
+
+  [data-testid="stSidebarCollapsedControl"] button {
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    min-height: 38px !important;
+  }
+}
+
+
+/* =========================================================
+   V10 — APP VISIBILITY FIX
+   The previous ring pseudo-elements could sit above the
+   Streamlit app and visually cover the entire interface.
+   V10 puts the rings directly into the page background
+   and disables those overlay layers.
+   CSS ONLY — no application logic changed.
+   ========================================================= */
+
+
+/* ---------- REMOVE BACKGROUND OVERLAY LAYERS ---------- */
+
+.stApp::before,
+.stApp::after,
+[data-testid="stAppViewContainer"]::before {
+  display: none !important;
+  content: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+
+/* ---------- REAL PAGE BACKGROUND ---------- */
+
+.stApp {
+  position: relative !important;
+  overflow: visible !important;
+
+  /*
+     Rings are now part of the actual background instead of
+     being separate pseudo-elements sitting above the app.
+  */
+  background:
+    /* center glow */
+    radial-gradient(
+      circle at 52% 45%,
+      rgba(23, 211, 216, .22) 0%,
+      rgba(10, 126, 139, .14) 13%,
+      rgba(4, 55, 66, .08) 29%,
+      transparent 48%
+    ),
+
+    /* bright concentric rings */
+    repeating-radial-gradient(
+      circle at 52% 45%,
+      transparent 0px,
+      transparent 27px,
+      rgba(28, 224, 224, .62) 29px,
+      rgba(28, 224, 224, .62) 31px,
+      transparent 33px,
+      transparent 55px
+    ),
+
+    /* softer secondary rings */
+    repeating-radial-gradient(
+      circle at 52% 45%,
+      transparent 0px,
+      transparent 63px,
+      rgba(102, 231, 231, .17) 65px,
+      rgba(102, 231, 231, .17) 67px,
+      transparent 69px,
+      transparent 95px
+    ),
+
+    /* dark teal base */
+    linear-gradient(
+      135deg,
+      #021821 0%,
+      #06353d 45%,
+      #04262e 72%,
+      #01141c 100%
+    ) !important;
+
+  background-attachment: fixed !important;
+  color: #eaf8ff !important;
+}
+
+
+/* ---------- KEEP STREAMLIT CONTENT ABOVE THE BACKGROUND ---------- */
+
+[data-testid="stAppViewContainer"],
+[data-testid="stAppViewContainer"] > *,
+.main,
+.main .block-container {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+
+/* ---------- MAIN CONTENT GLASS — NOT OPAQUE ---------- */
+
+.main .block-container {
+  background: linear-gradient(
+    135deg,
+    rgba(3, 20, 29, .78),
+    rgba(3, 27, 36, .58)
+  ) !important;
+
+  border-left: 1px solid rgba(91, 220, 231, .06) !important;
+  border-right: 1px solid rgba(91, 220, 231, .04) !important;
+}
+
+
+/* ---------- MAKE IMPORTANT CONTENT SURFACES READABLE ---------- */
+
+[data-testid="stVerticalBlockBorderWrapper"],
+[data-testid="stExpander"],
+div[data-testid="stMetric"],
+[data-testid="stPlotlyChart"] {
+  background: rgba(5, 25, 35, .88) !important;
+  border-color: rgba(92, 178, 207, .20) !important;
+}
+
+
+/* ---------- RING SCALE ON SMALL SCREENS ---------- */
+
+@media (max-width: 900px) {
+  .stApp {
+    background:
+      radial-gradient(
+        circle at 58% 42%,
+        rgba(23, 211, 216, .20) 0%,
+        rgba(10, 126, 139, .10) 16%,
+        transparent 48%
+      ),
+      repeating-radial-gradient(
+        circle at 58% 42%,
+        transparent 0px,
+        transparent 21px,
+        rgba(28, 224, 224, .48) 23px,
+        rgba(28, 224, 224, .48) 25px,
+        transparent 27px,
+        transparent 43px
+      ),
+      linear-gradient(
+        135deg,
+        #021821 0%,
+        #06353d 45%,
+        #04262e 72%,
+        #01141c 100%
+      ) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .stApp {
+    background:
+      radial-gradient(
+        circle at 65% 42%,
+        rgba(23, 211, 216, .17) 0%,
+        transparent 45%
+      ),
+      repeating-radial-gradient(
+        circle at 65% 42%,
+        transparent 0px,
+        transparent 17px,
+        rgba(28, 224, 224, .36) 19px,
+        rgba(28, 224, 224, .36) 21px,
+        transparent 23px,
+        transparent 36px
+      ),
+      linear-gradient(
+        135deg,
+        #021821 0%,
+        #06353d 45%,
+        #04262e 72%,
+        #01141c 100%
+      ) !important;
+  }
+
+  .main .block-container {
+    background: rgba(3, 20, 29, .70) !important;
+  }
+}
+
+
+/* ---------- IMPORTANT: NEVER HIDE STREAMLIT APP CONTENT ---------- */
+
+[data-testid="stAppViewContainer"] > div,
+[data-testid="stAppViewContainer"] section,
+.main .block-container {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+
+/* =========================================================
+   V11 — FORM FIELD TEXT VISIBILITY ONLY
+   Makes text inside Selectbox, NumberInput and TextInput
+   clearly readable on the existing dark theme.
+   No other UI behavior is changed.
+   ========================================================= */
+
+/* Selectbox selected value + placeholder */
+div[data-baseweb="select"] > div {
+  color: #dff7ff !important;
+}
+
+div[data-baseweb="select"] [role="combobox"],
+div[data-baseweb="select"] input,
+div[data-baseweb="select"] [class*="singleValue"],
+div[data-baseweb="select"] [class*="placeholder"] {
+  color: #dff7ff !important;
+  -webkit-text-fill-color: #dff7ff !important;
+  opacity: 1 !important;
+}
+
+/* All normal text/number input values */
+div[data-baseweb="input"] input,
+div[data-baseweb="input"] textarea,
+textarea,
+input[type="text"],
+input[type="number"] {
+  color: #dff7ff !important;
+  -webkit-text-fill-color: #dff7ff !important;
+  opacity: 1 !important;
+  caret-color: #35d9ff !important;
+}
+
+/* Input placeholders */
+div[data-baseweb="input"] input::placeholder,
+textarea::placeholder,
+input::placeholder {
+  color: #91b6c9 !important;
+  -webkit-text-fill-color: #91b6c9 !important;
+  opacity: 1 !important;
+}
+
+/* Number input +/- controls remain visible */
+div[data-baseweb="input"] button {
+  color: #dff7ff !important;
+}
+
+div[data-baseweb="input"] button svg {
+  color: #dff7ff !important;
+  fill: #dff7ff !important;
+}
+
+/* Dropdown options */
+div[data-baseweb="menu"] *,
+ul[role="listbox"] *,
+li[role="option"] {
+  color: #dff7ff !important;
+  -webkit-text-fill-color: #dff7ff !important;
+}
+
+/* Keep field labels readable */
+label[data-testid="stWidgetLabel"],
+label[data-testid="stWidgetLabel"] p {
+  color: #dff7ff !important;
+  -webkit-text-fill-color: #dff7ff !important;
+  opacity: 1 !important;
+}
