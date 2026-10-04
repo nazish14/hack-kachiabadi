@@ -1311,7 +1311,6 @@ section[data-testid="stSidebar"] [data-baseweb="radio"] label {
 }
 
 section[data-testid="stSidebar"] [data-baseweb="radio"] label:hover {
-  background: rgba(255,255,255,.065) !important;
 }
 
 /* Replace the visually weak default radio dot with a compact status icon. */
