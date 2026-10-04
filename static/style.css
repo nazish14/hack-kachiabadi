@@ -1464,3 +1464,617 @@ iframe[title*="Folium"] {
 /* =========================================================
    END — V3 VISUAL OVERRIDES
    ========================================================= */
+
+
+/* =========================================================
+   SHEHRBEHTAR AI — V4 DARK DASHBOARD THEME
+   Inspired by the supplied dark AI dashboard reference.
+   Visual-only override layer. Application logic untouched.
+   ========================================================= */
+
+/* ---------- DARK DASHBOARD TOKENS ---------- */
+
+:root {
+  --sb-primary: #18bfff !important;
+  --sb-primary-dark: #0891d1 !important;
+  --sb-primary-deep: #0b2946 !important;
+  --sb-primary-soft: rgba(24, 191, 255, .12) !important;
+
+  --sb-accent: #8b5cf6 !important;
+  --sb-accent-soft: rgba(139, 92, 246, .13) !important;
+
+  --sb-success: #20d6a3 !important;
+  --sb-success-soft: rgba(32, 214, 163, .12) !important;
+
+  --sb-warning: #f6b73c !important;
+  --sb-warning-soft: rgba(246, 183, 60, .12) !important;
+
+  --sb-danger: #ff5b6e !important;
+  --sb-danger-soft: rgba(255, 91, 110, .12) !important;
+
+  --sb-info: #35b9ff !important;
+  --sb-info-soft: rgba(53, 185, 255, .12) !important;
+
+  --sb-ink: #f5f9ff !important;
+  --sb-ink-soft: #dce8f5 !important;
+  --sb-muted: #8da2b8 !important;
+  --sb-muted-light: #647b94 !important;
+
+  --sb-bg: #050c14 !important;
+  --sb-bg-soft: #08121e !important;
+  --sb-surface: #0b1827 !important;
+  --sb-surface-soft: #0e1d2e !important;
+
+  --sb-border: rgba(128, 167, 202, .16) !important;
+  --sb-border-light: rgba(128, 167, 202, .09) !important;
+  --sb-border-focus: #18bfff !important;
+
+  --sb-sidebar: #040b13 !important;
+  --sb-sidebar-mid: #06111d !important;
+  --sb-sidebar-soft: #0b1b2c !important;
+
+  --sb-shadow-xs: 0 2px 8px rgba(0, 0, 0, .18) !important;
+  --sb-shadow-sm: 0 6px 18px rgba(0, 0, 0, .24) !important;
+  --sb-shadow: 0 12px 32px rgba(0, 0, 0, .28) !important;
+  --sb-shadow-lg: 0 20px 48px rgba(0, 0, 0, .34) !important;
+}
+
+
+/* ---------- APP BACKGROUND ---------- */
+
+.stApp {
+  background:
+    radial-gradient(circle at 88% 4%, rgba(24,191,255,.085), transparent 25rem),
+    radial-gradient(circle at 55% 90%, rgba(139,92,246,.055), transparent 25rem),
+    linear-gradient(135deg, #050c14 0%, #07111d 48%, #050b13 100%) !important;
+
+  color: #f5f9ff !important;
+}
+
+
+/* Subtle dashboard grid texture */
+
+.stApp::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: .20;
+  background-image:
+    linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: linear-gradient(to bottom, black, transparent 85%);
+  z-index: 0;
+}
+
+
+/* ---------- MAIN CONTENT ---------- */
+
+[data-testid="stAppViewContainer"] {
+  background: transparent !important;
+  color: #f5f9ff !important;
+}
+
+.main .block-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1500px !important;
+  padding: 2rem 2.8rem 3.5rem !important;
+}
+
+
+/* ---------- TYPOGRAPHY ---------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #f7fbff !important;
+  font-weight: 750 !important;
+}
+
+p,
+[data-testid="stMarkdownContainer"],
+[data-testid="stText"] {
+  color: #91a6ba !important;
+}
+
+h1 {
+  letter-spacing: -.04em !important;
+}
+
+h2,
+h3 {
+  letter-spacing: -.025em !important;
+}
+
+[data-testid="stCaptionContainer"],
+.stCaption {
+  color: #71879d !important;
+}
+
+
+/* ---------- SIDEBAR ---------- */
+
+section[data-testid="stSidebar"] {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(24,191,255,.10), transparent 18rem),
+    radial-gradient(circle at 0% 100%, rgba(139,92,246,.06), transparent 18rem),
+    linear-gradient(180deg, #071525 0%, #040b13 100%) !important;
+
+  border-right: 1px solid rgba(80,145,190,.14) !important;
+  box-shadow: 12px 0 40px rgba(0,0,0,.22) !important;
+}
+
+section[data-testid="stSidebar"] * {
+  color: #b7c8d8 !important;
+}
+
+section[data-testid="stSidebar"] h1,
+section[data-testid="stSidebar"] h2,
+section[data-testid="stSidebar"] h3,
+section[data-testid="stSidebar"] h4 {
+  color: #f7fbff !important;
+}
+
+section[data-testid="stSidebar"]
+[data-testid="stMarkdownContainer"] p {
+  color: #71879d !important;
+}
+
+
+/* Sidebar divider */
+
+section[data-testid="stSidebar"] hr {
+  border-top: 1px solid rgba(122,164,195,.13) !important;
+}
+
+
+/* Sidebar navigation options */
+
+section[data-testid="stSidebar"] [data-baseweb="radio"] {
+  margin: 6px 0 !important;
+}
+
+section[data-testid="stSidebar"] [data-baseweb="radio"] > div {
+  border-radius: 12px !important;
+  padding: 5px 7px !important;
+  border: 1px solid transparent;
+  transition: all 180ms ease;
+}
+
+section[data-testid="stSidebar"] [data-baseweb="radio"] > div:hover {
+  background: rgba(24,191,255,.07) !important;
+  border-color: rgba(24,191,255,.13);
+  transform: translateX(3px);
+}
+
+section[data-testid="stSidebar"] [data-baseweb="radio"] label {
+  color: #a9bed0 !important;
+  font-weight: 650 !important;
+}
+
+
+/* Radio circle */
+
+section[data-testid="stSidebar"] [data-baseweb="radio"] [role="radio"] {
+  border-color: #4b6479 !important;
+  background: #0b1827 !important;
+}
+
+section[data-testid="stSidebar"] [data-baseweb="radio"] [aria-checked="true"] {
+  border-color: #18bfff !important;
+  box-shadow: 0 0 0 4px rgba(24,191,255,.09);
+}
+
+
+/* Sidebar cards */
+
+section[data-testid="stSidebar"] div[style*="background-color"] {
+  background: linear-gradient(145deg, #0d2236, #09192a) !important;
+  border: 1px solid rgba(24,191,255,.10) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 10px 28px rgba(0,0,0,.25) !important;
+}
+
+
+/* ---------- TABS ---------- */
+
+.stTabs {
+  margin-top: 1.2rem !important;
+}
+
+.stTabs [data-baseweb="tab-list"] {
+  width: fit-content;
+  max-width: 100%;
+  gap: 5px;
+  padding: 5px;
+  background: rgba(9, 23, 37, .86) !important;
+  border: 1px solid rgba(113,153,185,.14) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 10px 28px rgba(0,0,0,.20) !important;
+  backdrop-filter: blur(15px);
+}
+
+.stTabs [data-baseweb="tab"] {
+  height: 42px !important;
+  padding: 0 17px !important;
+  border-radius: 10px !important;
+  color: #7f96ab !important;
+  font-weight: 650 !important;
+}
+
+.stTabs [data-baseweb="tab"]:hover {
+  background: rgba(24,191,255,.08) !important;
+  color: #bcecff !important;
+}
+
+.stTabs [data-baseweb="tab"][aria-selected="true"],
+.stTabs [aria-selected="true"] {
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #087fae, #18aee7) !important;
+  box-shadow: 0 7px 20px rgba(24,191,255,.18) !important;
+}
+
+.stTabs [data-baseweb="tab-highlight"] {
+  display: none !important;
+}
+
+
+/* ---------- BUTTONS ---------- */
+
+.stButton > button,
+.stDownloadButton > button {
+  min-height: 42px !important;
+  border-radius: 11px !important;
+  border: 1px solid rgba(117,157,188,.19) !important;
+  background: #0d1d2d !important;
+  color: #dbe9f5 !important;
+  font-weight: 700 !important;
+  box-shadow: 0 5px 16px rgba(0,0,0,.18) !important;
+}
+
+.stButton > button:hover,
+.stDownloadButton > button:hover {
+  border-color: rgba(24,191,255,.35) !important;
+  background: #10253a !important;
+  color: #ffffff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 10px 25px rgba(0,0,0,.25) !important;
+}
+
+.stButton > button[kind="primary"],
+.stButton > button[data-testid="baseButton-primary"] {
+  background: linear-gradient(135deg, #08a9df, #18c1ff) !important;
+  border-color: #18bfff !important;
+  color: #02111d !important;
+  box-shadow: 0 9px 24px rgba(24,191,255,.18) !important;
+}
+
+.stButton > button[kind="primary"]:hover,
+.stButton > button[data-testid="baseButton-primary"]:hover {
+  background: linear-gradient(135deg, #18c1ff, #5bd4ff) !important;
+  color: #02111d !important;
+}
+
+
+/* ---------- INPUTS ---------- */
+
+div[data-baseweb="input"] > div,
+div[data-baseweb="select"] > div,
+textarea,
+input {
+  border-radius: 11px !important;
+}
+
+div[data-baseweb="input"] > div,
+div[data-baseweb="select"] > div {
+  min-height: 43px;
+  border: 1px solid rgba(119,157,186,.18) !important;
+  background: #0a1827 !important;
+  color: #eef7ff !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.015), 0 4px 14px rgba(0,0,0,.14) !important;
+}
+
+div[data-baseweb="input"] input,
+div[data-baseweb="select"] input,
+textarea,
+input {
+  color: #eef7ff !important;
+  background: transparent !important;
+}
+
+div[data-baseweb="input"] > div:focus-within,
+div[data-baseweb="select"] > div:focus-within {
+  border-color: #18bfff !important;
+  box-shadow: 0 0 0 3px rgba(24,191,255,.11) !important;
+}
+
+label[data-testid="stWidgetLabel"] p,
+.stTextInput label,
+.stTextArea label,
+.stSelectbox label,
+.stNumberInput label,
+.stFileUploader label {
+  color: #d9e7f3 !important;
+}
+
+
+/* ---------- FILE UPLOADER ---------- */
+
+[data-testid="stFileUploaderDropzone"] {
+  min-height: 170px !important;
+  border: 1.5px dashed rgba(24,191,255,.35) !important;
+  border-radius: 18px !important;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(24,191,255,.07), transparent 13rem),
+    linear-gradient(145deg, #0a1928, #081522) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.025),
+    0 12px 32px rgba(0,0,0,.22) !important;
+}
+
+[data-testid="stFileUploaderDropzone"]:hover {
+  border-color: #18bfff !important;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(24,191,255,.12), transparent 13rem),
+    linear-gradient(145deg, #0c1d2f, #091827) !important;
+  box-shadow: 0 16px 38px rgba(0,0,0,.28) !important;
+}
+
+[data-testid="stFileUploaderDropzone"] button {
+  border: 1px solid rgba(24,191,255,.35) !important;
+  border-radius: 10px !important;
+  background: #0d263b !important;
+  color: #8edfff !important;
+  font-weight: 750 !important;
+}
+
+[data-testid="stFileUploaderDropzone"] button:hover {
+  background: #12344e !important;
+  border-color: #18bfff !important;
+}
+
+
+/* ---------- METRICS / DASHBOARD CARDS ---------- */
+
+div[data-testid="stMetric"] {
+  position: relative;
+  min-height: 100px;
+  padding: 18px 19px !important;
+  border: 1px solid rgba(115,157,188,.14) !important;
+  border-radius: 17px !important;
+  background:
+    linear-gradient(145deg, #0d2236, #091827) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.025),
+    0 10px 28px rgba(0,0,0,.25) !important;
+}
+
+div[data-testid="stMetric"]::before {
+  width: 3px;
+  background: linear-gradient(180deg, #18bfff, #8b5cf6) !important;
+}
+
+div[data-testid="stMetric"]:hover {
+  transform: translateY(-3px);
+  border-color: rgba(24,191,255,.23) !important;
+  box-shadow: 0 17px 36px rgba(0,0,0,.32) !important;
+}
+
+div[data-testid="stMetricLabel"] {
+  color: #7f98ad !important;
+}
+
+div[data-testid="stMetricValue"] {
+  color: #f7fbff !important;
+}
+
+
+/* ---------- GENERAL BORDERED CONTAINERS ---------- */
+
+div[data-testid="stVerticalBlockBorderWrapper"] {
+  border: 1px solid rgba(113,154,184,.14) !important;
+  border-radius: 18px !important;
+  background:
+    linear-gradient(145deg, rgba(14,31,48,.96), rgba(8,20,32,.98)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.018),
+    0 12px 32px rgba(0,0,0,.25) !important;
+}
+
+div[data-testid="stVerticalBlockBorderWrapper"]:hover {
+  border-color: rgba(24,191,255,.20) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.025),
+    0 16px 38px rgba(0,0,0,.31) !important;
+}
+
+
+/* ---------- EXPANDERS ---------- */
+
+[data-testid="stExpander"] {
+  border: 1px solid rgba(113,154,184,.14) !important;
+  border-radius: 14px !important;
+  background: #0a1928 !important;
+  box-shadow: 0 8px 25px rgba(0,0,0,.20) !important;
+}
+
+[data-testid="stExpander"] summary {
+  color: #eaf4fc !important;
+}
+
+[data-testid="stExpander"] summary:hover {
+  background: rgba(24,191,255,.05) !important;
+}
+
+
+/* ---------- ALERTS ---------- */
+
+div[data-testid="stAlert"] {
+  border-radius: 13px !important;
+  border-width: 1px !important;
+  background: #0b1a29 !important;
+  box-shadow: 0 8px 22px rgba(0,0,0,.20) !important;
+}
+
+div[data-testid="stAlert"] p {
+  color: #c5d6e4 !important;
+}
+
+
+/* ---------- MAP ---------- */
+
+iframe[title*="streamlit_folium"],
+iframe[title*="Folium"] {
+  width: 100% !important;
+  border: 1px solid rgba(113,154,184,.18) !important;
+  border-radius: 18px !important;
+  box-shadow:
+    0 14px 36px rgba(0,0,0,.30),
+    0 0 0 1px rgba(24,191,255,.025) !important;
+  overflow: hidden !important;
+}
+
+
+/* ---------- CHARTS ---------- */
+
+[data-testid="stPlotlyChart"] {
+  border: 1px solid rgba(113,154,184,.14) !important;
+  border-radius: 18px !important;
+  background: #091827 !important;
+  padding: 6px !important;
+  box-shadow: 0 12px 32px rgba(0,0,0,.25) !important;
+}
+
+
+/* ---------- IMAGES ---------- */
+
+[data-testid="stImage"] img {
+  border: 1px solid rgba(113,154,184,.15) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 12px 30px rgba(0,0,0,.25) !important;
+}
+
+
+/* ---------- DATAFRAME ---------- */
+
+[data-testid="stDataFrame"] {
+  border: 1px solid rgba(113,154,184,.15) !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  background: #091827 !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,.24) !important;
+}
+
+
+/* ---------- DIVIDERS ---------- */
+
+hr {
+  border: 0 !important;
+  border-top: 1px solid rgba(112,153,184,.13) !important;
+}
+
+
+/* ---------- INLINE CUSTOM STATUS / TICKET CARDS ---------- */
+
+div[style*="Ticket Generated"] {
+  background: linear-gradient(145deg, #092a25, #081d1a) !important;
+  border: 1px solid rgba(32,214,163,.18) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 12px 30px rgba(0,0,0,.25) !important;
+}
+
+div[style*="Status:"] {
+  background: linear-gradient(145deg, #0d2236, #091827) !important;
+  border: 1px solid rgba(113,154,184,.14) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 12px 32px rgba(0,0,0,.28) !important;
+}
+
+
+/* ---------- SIDEBAR SCROLLBAR ---------- */
+
+section[data-testid="stSidebar"] ::-webkit-scrollbar,
+.stApp ::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+section[data-testid="stSidebar"] ::-webkit-scrollbar-track,
+.stApp ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+section[data-testid="stSidebar"] ::-webkit-scrollbar-thumb,
+.stApp ::-webkit-scrollbar-thumb {
+  background: #1c344a;
+  border-radius: 99px;
+}
+
+section[data-testid="stSidebar"] ::-webkit-scrollbar-thumb:hover,
+.stApp ::-webkit-scrollbar-thumb:hover {
+  background: #28506d;
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 900px) {
+  .main .block-container {
+    padding: 1.25rem 1rem 2.5rem !important;
+  }
+
+  .stTabs [data-baseweb="tab-list"] {
+    width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .stTabs [data-baseweb="tab-list"]::-webkit-scrollbar {
+    display: none;
+  }
+
+  [data-testid="stFileUploaderDropzone"] {
+    min-height: 145px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .main .block-container {
+    padding: 1rem .7rem 2rem !important;
+  }
+
+  h1 {
+    font-size: 1.55rem !important;
+  }
+
+  .stButton > button,
+  .stDownloadButton > button {
+    width: 100% !important;
+  }
+
+  div[data-testid="stMetric"] {
+    padding: 15px !important;
+  }
+}
+
+
+/* ---------- REDUCED MOTION ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+  }
+}
+
+
+/* =========================================================
+   END — V4 DARK DASHBOARD THEME
+   ========================================================= */
