@@ -1,162 +1,484 @@
+/* =========================================================
+   ShehrBehtar AI — Premium Civic-Tech Dashboard
+   Visual-only stylesheet.
+   No application logic is defined here.
+   Compatible with Streamlit.
+   ========================================================= */
+
 
 /* =========================================================
-   ShehrBehtar AI — Modern Minimal Civic UI
-   Visual-only stylesheet. No application logic is defined here.
+   1. DESIGN TOKENS
    ========================================================= */
 
 :root {
+  /* Brand */
   --sb-primary: #2563eb;
   --sb-primary-dark: #1d4ed8;
+  --sb-primary-deep: #1e3a8a;
   --sb-primary-soft: #eff6ff;
-  --sb-accent: #14b8a6;
+
+  --sb-accent: #0d9488;
+  --sb-accent-soft: #f0fdfa;
+
+  /* Semantic */
   --sb-success: #059669;
+  --sb-success-soft: #ecfdf5;
+
   --sb-warning: #d97706;
+  --sb-warning-soft: #fffbeb;
+
   --sb-danger: #dc2626;
+  --sb-danger-soft: #fef2f2;
+
+  --sb-info: #0284c7;
+  --sb-info-soft: #f0f9ff;
+
+  /* Text */
   --sb-ink: #0f172a;
+  --sb-ink-soft: #1e293b;
   --sb-muted: #64748b;
-  --sb-border: #e2e8f0;
+  --sb-muted-light: #94a3b8;
+
+  /* Surfaces */
+  --sb-bg: #f5f7fb;
+  --sb-bg-soft: #f8fafc;
   --sb-surface: #ffffff;
-  --sb-bg: #f8fafc;
-  --sb-shadow: 0 10px 30px rgba(15, 23, 42, .07);
-  --sb-shadow-hover: 0 16px 38px rgba(15, 23, 42, .11);
-  --sb-radius: 16px;
+  --sb-surface-soft: #f8fafc;
+
+  /* Borders */
+  --sb-border: #e2e8f0;
+  --sb-border-light: #edf2f7;
+  --sb-border-focus: #93c5fd;
+
+  /* Sidebar */
+  --sb-sidebar: #0b1220;
+  --sb-sidebar-mid: #111c32;
+  --sb-sidebar-soft: #17243d;
+
+  /* Radius */
+  --sb-radius-xs: 8px;
   --sb-radius-sm: 10px;
+  --sb-radius-md: 14px;
+  --sb-radius: 16px;
+  --sb-radius-lg: 20px;
+
+  /* Shadows */
+  --sb-shadow-xs: 0 2px 8px rgba(15, 23, 42, .035);
+  --sb-shadow-sm: 0 4px 14px rgba(15, 23, 42, .055);
+  --sb-shadow: 0 8px 24px rgba(15, 23, 42, .065);
+  --sb-shadow-lg: 0 16px 40px rgba(15, 23, 42, .09);
+
+  /* Motion */
+  --sb-transition: 180ms ease-out;
+  --sb-transition-slow: 240ms ease-out;
 }
 
-/* Page */
+
+/* =========================================================
+   2. GLOBAL / PAGE
+   ========================================================= */
+
 .stApp {
   background:
-    radial-gradient(circle at 86% 0%, rgba(37, 99, 235, .055), transparent 28rem),
-    linear-gradient(180deg, #f8fafc 0%, #ffffff 46%, #f8fafc 100%);
+    radial-gradient(
+      circle at 92% 0%,
+      rgba(37, 99, 235, .055),
+      transparent 26rem
+    ),
+    radial-gradient(
+      circle at 0% 70%,
+      rgba(13, 148, 136, .035),
+      transparent 24rem
+    ),
+    linear-gradient(
+      180deg,
+      #f7f9fc 0%,
+      #ffffff 42%,
+      #f7f9fc 100%
+    );
+
   color: var(--sb-ink);
 }
 
+
+/* Main content */
+
 .main .block-container {
   max-width: 1500px;
-  padding: 2rem 2.5rem 3rem;
+  padding: 2rem 2.5rem 3.5rem;
 }
 
-/* Typography */
-h1, h2, h3, h4 {
-  color: var(--sb-ink) !important;
-  letter-spacing: -.025em;
-  font-weight: 750 !important;
+
+/* Remove unnecessary Streamlit decoration */
+
+[data-testid="stHeader"] {
+  background: transparent !important;
 }
+
+[data-testid="stDecoration"] {
+  display: none !important;
+}
+
+
+/* Main content text */
+
+[data-testid="stAppViewContainer"] {
+  color: var(--sb-ink);
+}
+
+
+/* =========================================================
+   3. TYPOGRAPHY
+   ========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--sb-ink) !important;
+  font-weight: 750 !important;
+  letter-spacing: -.025em;
+  line-height: 1.2;
+}
+
 
 h1 {
-  font-size: clamp(1.8rem, 2.7vw, 2.65rem) !important;
-  margin-bottom: .35rem !important;
+  font-size: clamp(1.85rem, 2.8vw, 2.65rem) !important;
+  margin-bottom: .4rem !important;
 }
 
-h2 { font-size: clamp(1.35rem, 2vw, 1.8rem) !important; }
-h3 { font-size: 1.18rem !important; }
 
-.stCaption, [data-testid="stCaptionContainer"] {
+h2 {
+  font-size: clamp(1.4rem, 2vw, 1.85rem) !important;
+}
+
+
+h3 {
+  font-size: 1.2rem !important;
+}
+
+
+h4 {
+  font-size: 1.05rem !important;
+}
+
+
+p {
+  line-height: 1.55;
+}
+
+
+/* Captions */
+
+.stCaption,
+[data-testid="stCaptionContainer"] {
   color: var(--sb-muted) !important;
 }
 
-/* Sidebar */
-section[data-testid="stSidebar"] {
-  background: linear-gradient(180deg, #0f172a 0%, #111c33 52%, #0b1222 100%);
-  border-right: 1px solid rgba(255,255,255,.08);
+
+/* Markdown */
+
+[data-testid="stMarkdownContainer"] {
+  color: var(--sb-ink);
 }
 
-section[data-testid="stSidebar"] * {
-  color: #e2e8f0;
+
+/* Links */
+
+a {
+  color: var(--sb-primary);
+  transition: color var(--sb-transition);
 }
+
+a:hover {
+  color: var(--sb-primary-dark);
+}
+
+
+/* =========================================================
+   4. SIDEBAR
+   ========================================================= */
+
+section[data-testid="stSidebar"] {
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(37, 99, 235, .12),
+      transparent 18rem
+    ),
+    linear-gradient(
+      180deg,
+      var(--sb-sidebar-mid) 0%,
+      var(--sb-sidebar) 55%,
+      #080e1a 100%
+    );
+
+  border-right: 1px solid rgba(255, 255, 255, .06);
+}
+
+
+/* Sidebar text */
+
+section[data-testid="stSidebar"] * {
+  color: #dbe4f0;
+}
+
 
 section[data-testid="stSidebar"] h1,
 section[data-testid="stSidebar"] h2,
-section[data-testid="stSidebar"] h3 {
+section[data-testid="stSidebar"] h3,
+section[data-testid="stSidebar"] h4 {
   color: #ffffff !important;
 }
 
-section[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p {
+
+section[data-testid="stSidebar"]
+[data-testid="stMarkdownContainer"] p {
   color: #94a3b8;
 }
 
-section[data-testid="stSidebar"] [data-baseweb="radio"] > div {
-  border-radius: 10px;
-  transition: background .18s ease, transform .18s ease;
+
+/* Sidebar horizontal rules */
+
+section[data-testid="stSidebar"] hr {
+  border-top-color: rgba(255, 255, 255, .08) !important;
 }
 
-section[data-testid="stSidebar"] [data-baseweb="radio"] > div:hover {
-  background: rgba(255,255,255,.07);
+
+/* Sidebar radio navigation */
+
+section[data-testid="stSidebar"]
+[data-baseweb="radio"] {
+  margin: 3px 0;
 }
 
-section[data-testid="stSidebar"] [data-baseweb="radio"] label {
+
+section[data-testid="stSidebar"]
+[data-baseweb="radio"] > div {
+  border-radius: 11px;
+  padding: 3px;
+  transition:
+    background var(--sb-transition),
+    transform var(--sb-transition);
+}
+
+
+section[data-testid="stSidebar"]
+[data-baseweb="radio"] > div:hover {
+  background: rgba(255, 255, 255, .065);
+  transform: translateX(2px);
+}
+
+
+section[data-testid="stSidebar"]
+[data-baseweb="radio"] label {
   font-weight: 600;
+  color: #cbd5e1;
 }
 
-/* Tabs */
-.stTabs [data-baseweb="tab-list"] {
-  gap: 8px;
-  background: rgba(255,255,255,.78);
-  border: 1px solid var(--sb-border);
-  padding: 6px;
-  border-radius: 14px;
-  box-shadow: 0 4px 18px rgba(15,23,42,.04);
+
+/* Sidebar buttons */
+
+section[data-testid="stSidebar"]
+.stButton > button {
+  background: rgba(255, 255, 255, .055);
+  border-color: rgba(255, 255, 255, .09);
+  color: #e2e8f0;
+  box-shadow: none;
 }
+
+
+section[data-testid="stSidebar"]
+.stButton > button:hover {
+  background: rgba(255, 255, 255, .09);
+  border-color: rgba(255, 255, 255, .15);
+}
+
+
+/* Sidebar ticket/status cards */
+
+section[data-testid="stSidebar"]
+div[style*="background-color"] {
+  border-radius: 12px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, .16);
+}
+
+
+/* =========================================================
+   5. TABS / NAVIGATION
+   ========================================================= */
+
+.stTabs {
+  margin-top: .5rem;
+}
+
+
+.stTabs [data-baseweb="tab-list"] {
+  display: flex;
+  gap: 6px;
+
+  background: rgba(255, 255, 255, .82);
+  border: 1px solid var(--sb-border);
+
+  padding: 5px;
+  border-radius: 14px;
+
+  box-shadow: var(--sb-shadow-xs);
+
+  backdrop-filter: blur(10px);
+}
+
 
 .stTabs [data-baseweb="tab"] {
+  min-height: 42px;
   height: 42px;
+
   border-radius: 10px;
-  padding: 0 16px;
+
+  padding: 0 17px;
+
   color: var(--sb-muted);
   font-weight: 650;
-  transition: all .18s ease;
+
+  transition:
+    background var(--sb-transition),
+    color var(--sb-transition),
+    box-shadow var(--sb-transition),
+    transform var(--sb-transition);
 }
+
 
 .stTabs [data-baseweb="tab"]:hover {
   background: var(--sb-primary-soft);
   color: var(--sb-primary);
 }
 
+
 .stTabs [aria-selected="true"] {
   color: var(--sb-primary) !important;
   background: #ffffff;
-  box-shadow: 0 3px 12px rgba(37,99,235,.10);
+
+  box-shadow:
+    0 3px 12px rgba(37, 99, 235, .10);
+
+  font-weight: 700;
 }
+
 
 .stTabs [data-baseweb="tab-highlight"] {
   background: var(--sb-primary);
   height: 2px;
+  border-radius: 2px;
 }
 
-/* Buttons */
+
+/* =========================================================
+   6. BUTTONS
+   ========================================================= */
+
 .stButton > button,
 .stDownloadButton > button {
   min-height: 42px;
+
+  padding: 0 17px;
+
   border-radius: 11px;
+
   border: 1px solid var(--sb-border);
+
+  background: #ffffff;
+
+  color: var(--sb-ink);
+
   font-weight: 700;
   letter-spacing: -.01em;
-  transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
-  box-shadow: 0 3px 10px rgba(15,23,42,.04);
+
+  box-shadow: var(--sb-shadow-xs);
+
+  transition:
+    transform var(--sb-transition),
+    box-shadow var(--sb-transition),
+    border-color var(--sb-transition),
+    background var(--sb-transition);
 }
+
+
+/* Hover */
 
 .stButton > button:hover,
 .stDownloadButton > button:hover {
   transform: translateY(-1px);
-  box-shadow: 0 8px 20px rgba(15,23,42,.09);
+
   border-color: #cbd5e1;
+
+  background: #ffffff;
+
+  box-shadow: var(--sb-shadow-sm);
 }
+
+
+/* Active */
+
+.stButton > button:active,
+.stDownloadButton > button:active {
+  transform: translateY(0);
+  box-shadow: var(--sb-shadow-xs);
+}
+
+
+/* Primary */
 
 .stButton > button[kind="primary"],
 .stButton > button[data-testid="baseButton-primary"] {
-  background: linear-gradient(135deg, var(--sb-primary), #3b82f6);
+  background:
+    linear-gradient(
+      135deg,
+      var(--sb-primary),
+      #3b82f6
+    );
+
   border-color: var(--sb-primary);
+
   color: #ffffff;
-  box-shadow: 0 8px 18px rgba(37,99,235,.22);
+
+  box-shadow:
+    0 7px 18px rgba(37, 99, 235, .20);
 }
+
 
 .stButton > button[kind="primary"]:hover,
 .stButton > button[data-testid="baseButton-primary"]:hover {
-  background: linear-gradient(135deg, var(--sb-primary-dark), var(--sb-primary));
-  box-shadow: 0 12px 24px rgba(37,99,235,.28);
+  background:
+    linear-gradient(
+      135deg,
+      var(--sb-primary-dark),
+      var(--sb-primary)
+    );
+
+  border-color: var(--sb-primary-dark);
+
+  box-shadow:
+    0 10px 24px rgba(37, 99, 235, .25);
 }
 
-/* Inputs */
+
+/* Disabled buttons */
+
+.stButton > button:disabled,
+.stDownloadButton > button:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   7. INPUTS / FORMS
+   ========================================================= */
+
 div[data-baseweb="input"] > div,
 div[data-baseweb="select"] > div,
 textarea,
@@ -164,188 +486,723 @@ input {
   border-radius: 11px !important;
 }
 
+
+/* Input containers */
+
 div[data-baseweb="input"] > div,
 div[data-baseweb="select"] > div {
-  border-color: var(--sb-border) !important;
+  border: 1px solid var(--sb-border) !important;
+
   background: #ffffff;
-  box-shadow: 0 2px 8px rgba(15,23,42,.025);
-  transition: border-color .18s ease, box-shadow .18s ease;
+
+  box-shadow: var(--sb-shadow-xs);
+
+  transition:
+    border-color var(--sb-transition),
+    box-shadow var(--sb-transition),
+    background var(--sb-transition);
 }
+
+
+/* Focus */
 
 div[data-baseweb="input"] > div:focus-within,
 div[data-baseweb="select"] > div:focus-within {
-  border-color: #93c5fd !important;
-  box-shadow: 0 0 0 3px rgba(37,99,235,.10);
+  border-color: var(--sb-border-focus) !important;
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, .09);
 }
+
+
+/* Textarea */
+
+textarea {
+  border: 1px solid var(--sb-border) !important;
+  background: #ffffff !important;
+
+  box-shadow: var(--sb-shadow-xs);
+
+  transition:
+    border-color var(--sb-transition),
+    box-shadow var(--sb-transition);
+}
+
+
+textarea:focus {
+  border-color: var(--sb-border-focus) !important;
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, .09) !important;
+}
+
+
+/* Labels */
 
 label[data-testid="stWidgetLabel"] p,
 .stTextInput label,
 .stSelectbox label,
 .stNumberInput label,
-.stFileUploader label {
-  font-weight: 650 !important;
+.stFileUploader label,
+.stTextArea label {
   color: #334155 !important;
+
+  font-weight: 650 !important;
+
+  letter-spacing: -.005em;
 }
 
-/* File uploader */
-[data-testid="stFileUploaderDropzone"] {
-  border: 1.5px dashed #cbd5e1;
-  border-radius: 14px;
-  background: linear-gradient(180deg, #ffffff, #f8fafc);
-  transition: border-color .18s ease, background .18s ease;
+
+/* Select menu */
+
+[data-baseweb="popover"] {
+  border-radius: 12px;
 }
+
+
+/* =========================================================
+   8. FILE UPLOADER
+   ========================================================= */
+
+[data-testid="stFileUploaderDropzone"] {
+  min-height: 150px;
+
+  border: 1.5px dashed #cbd5e1;
+
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #f8fafc 100%
+    );
+
+  transition:
+    border-color var(--sb-transition),
+    background var(--sb-transition),
+    box-shadow var(--sb-transition);
+}
+
 
 [data-testid="stFileUploaderDropzone"]:hover {
   border-color: #60a5fa;
-  background: #eff6ff;
+
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #eff6ff 100%
+    );
+
+  box-shadow:
+    0 6px 18px rgba(37, 99, 235, .07);
 }
 
-/* Cards / containers */
-div[data-testid="stMetric"] {
-  background: var(--sb-surface);
-  border: 1px solid var(--sb-border);
-  border-radius: var(--sb-radius);
-  padding: 18px 20px;
-  box-shadow: var(--sb-shadow);
-  transition: transform .18s ease, box-shadow .18s ease;
+
+/* Uploader buttons */
+
+[data-testid="stFileUploaderDropzone"] button {
+  border-radius: 9px !important;
+
+  border: 1px solid var(--sb-border) !important;
+
+  background: #ffffff !important;
+
+  font-weight: 650 !important;
+
+  transition:
+    background var(--sb-transition),
+    border-color var(--sb-transition),
+    transform var(--sb-transition);
 }
+
+
+[data-testid="stFileUploaderDropzone"] button:hover {
+  background: var(--sb-primary-soft) !important;
+  border-color: #bfdbfe !important;
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   9. METRIC CARDS
+   ========================================================= */
+
+div[data-testid="stMetric"] {
+  position: relative;
+
+  background: rgba(255, 255, 255, .96);
+
+  border: 1px solid var(--sb-border);
+
+  border-radius: var(--sb-radius);
+
+  padding: 19px 20px;
+
+  box-shadow: var(--sb-shadow);
+
+  overflow: hidden;
+
+  transition:
+    transform var(--sb-transition-slow),
+    box-shadow var(--sb-transition-slow),
+    border-color var(--sb-transition);
+}
+
+
+/* Subtle accent line */
+
+div[data-testid="stMetric"]::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 3px;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--sb-primary),
+      var(--sb-accent)
+    );
+
+  opacity: .8;
+}
+
+
+/* Hover */
 
 div[data-testid="stMetric"]:hover {
   transform: translateY(-2px);
-  box-shadow: var(--sb-shadow-hover);
+
+  border-color: #d7e1ee;
+
+  box-shadow: var(--sb-shadow-lg);
 }
+
+
+/* Metric label */
 
 div[data-testid="stMetricLabel"] {
   color: var(--sb-muted) !important;
+
+  font-size: .86rem;
+
   font-weight: 650;
+
+  letter-spacing: .005em;
 }
+
+
+/* Metric value */
 
 div[data-testid="stMetricValue"] {
   color: var(--sb-ink) !important;
+
   font-weight: 800;
+
+  letter-spacing: -.025em;
 }
 
-/* Expanders */
-[data-testid="stExpander"] {
-  border: 1px solid var(--sb-border) !important;
-  border-radius: var(--sb-radius-sm) !important;
-  background: #ffffff;
-  box-shadow: 0 4px 16px rgba(15,23,42,.045);
-  overflow: hidden;
+
+/* Metric delta */
+
+[data-testid="stMetricDelta"] {
+  font-weight: 650;
 }
 
-[data-testid="stExpander"] summary {
-  font-weight: 700;
+
+/* =========================================================
+   10. GENERAL CARDS / CONTAINERS
+   ========================================================= */
+
+/* Streamlit bordered containers */
+
+div[data-testid="stVerticalBlockBorderWrapper"] {
+  border-radius: var(--sb-radius) !important;
+
+  border-color: var(--sb-border) !important;
+
+  background: rgba(255, 255, 255, .92);
+
+  box-shadow: var(--sb-shadow-sm);
+
+  transition:
+    box-shadow var(--sb-transition),
+    border-color var(--sb-transition);
 }
 
-[data-testid="stExpander"] summary:hover {
-  background: #f8fafc;
-}
 
-/* Alerts */
-div[data-testid="stAlert"] {
-  border-radius: 12px;
-  border-width: 1px;
-  box-shadow: 0 4px 14px rgba(15,23,42,.035);
-}
+div[data-testid="stVerticalBlockBorderWrapper"]:hover {
+  border-color: #d8e1ec !important;
 
-/* Images */
-[data-testid="stImage"] img {
-  border-radius: 14px;
-  border: 1px solid var(--sb-border);
-  box-shadow: 0 8px 24px rgba(15,23,42,.07);
-}
-
-/* Plotly and map frames */
-[data-testid="stPlotlyChart"],
-iframe[title*="streamlit_folium"],
-iframe[title*="Folium"] {
-  border-radius: 16px !important;
-}
-
-[data-testid="stPlotlyChart"] {
-  border: 1px solid var(--sb-border);
-  background: #ffffff;
-  padding: 6px;
   box-shadow: var(--sb-shadow);
 }
 
-/* Horizontal rules */
-hr {
-  border: 0 !important;
-  border-top: 1px solid var(--sb-border) !important;
-  margin: 1.4rem 0 !important;
+
+/* =========================================================
+   11. EXPANDERS
+   ========================================================= */
+
+[data-testid="stExpander"] {
+  border: 1px solid var(--sb-border) !important;
+
+  border-radius: var(--sb-radius-md) !important;
+
+  background: #ffffff;
+
+  box-shadow: var(--sb-shadow-sm);
+
+  overflow: hidden;
+
+  transition:
+    box-shadow var(--sb-transition),
+    border-color var(--sb-transition);
 }
 
-/* Existing custom ticket / status HTML */
-div[style*="Ticket Generated"] {
-  box-shadow: 0 10px 24px rgba(5,150,105,.12);
+
+[data-testid="stExpander"]:hover {
+  border-color: #d7e1ee !important;
+
+  box-shadow: var(--sb-shadow);
 }
+
+
+[data-testid="stExpander"] summary {
+  font-weight: 700;
+
+  color: var(--sb-ink);
+}
+
+
+[data-testid="stExpander"] summary:hover {
+  background: var(--sb-bg-soft);
+}
+
+
+/* =========================================================
+   12. ALERTS / STATUS
+   ========================================================= */
+
+div[data-testid="stAlert"] {
+  border-radius: 12px;
+
+  border-width: 1px;
+
+  box-shadow: var(--sb-shadow-xs);
+
+  padding: 12px 14px;
+}
+
+
+/* Alert text */
+
+div[data-testid="stAlert"] p {
+  line-height: 1.45;
+}
+
+
+/* =========================================================
+   13. IMAGES
+   ========================================================= */
+
+[data-testid="stImage"] img {
+  display: block;
+
+  width: 100%;
+
+  border-radius: 14px;
+
+  border: 1px solid var(--sb-border);
+
+  box-shadow: var(--sb-shadow);
+
+  transition:
+    transform var(--sb-transition),
+    box-shadow var(--sb-transition);
+}
+
+
+[data-testid="stImage"] img:hover {
+  box-shadow: var(--sb-shadow-lg);
+}
+
+
+/* =========================================================
+   14. CHARTS
+   ========================================================= */
+
+[data-testid="stPlotlyChart"] {
+  border: 1px solid var(--sb-border);
+
+  border-radius: var(--sb-radius);
+
+  background: #ffffff;
+
+  padding: 7px;
+
+  box-shadow: var(--sb-shadow);
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   15. MAPS / FOLIUM
+   ========================================================= */
+
+iframe[title*="streamlit_folium"],
+iframe[title*="Folium"] {
+  display: block;
+
+  width: 100%;
+
+  border-radius: var(--sb-radius) !important;
+
+  border: 1px solid var(--sb-border) !important;
+
+  box-shadow: var(--sb-shadow);
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   16. DATAFRAMES / TABLES
+   ========================================================= */
+
+[data-testid="stDataFrame"] {
+  border-radius: var(--sb-radius);
+
+  overflow: hidden;
+
+  border: 1px solid var(--sb-border);
+
+  box-shadow: var(--sb-shadow-sm);
+
+  background: #ffffff;
+}
+
+
+/* =========================================================
+   17. PROGRESS / STATUS ELEMENTS
+   ========================================================= */
+
+[data-testid="stProgress"] {
+  padding: 2px 0;
+}
+
+
+[data-testid="stProgress"] > div {
+  border-radius: 999px;
+}
+
+
+/* =========================================================
+   18. CUSTOM TICKET / STATUS HTML
+   ========================================================= */
+
+div[style*="Ticket Generated"] {
+  border-radius: var(--sb-radius-md);
+
+  box-shadow:
+    0 10px 26px rgba(5, 150, 105, .10);
+}
+
 
 div[style*="Status:"] {
-  box-shadow: 0 10px 28px rgba(15,23,42,.10);
+  border-radius: var(--sb-radius-md);
+
+  box-shadow:
+    0 10px 28px rgba(15, 23, 42, .09);
 }
 
-/* Sidebar ticket cards */
-section[data-testid="stSidebar"] div[style*="background-color"] {
-  box-shadow: 0 5px 16px rgba(0,0,0,.16);
+
+/* =========================================================
+   19. DIVIDERS
+   ========================================================= */
+
+hr {
+  border: 0 !important;
+
+  border-top: 1px solid var(--sb-border) !important;
+
+  margin: 1.5rem 0 !important;
 }
 
-/* Columns get cleaner separation on wide screens */
+
+/* =========================================================
+   20. COLUMNS / LAYOUT
+   ========================================================= */
+
 @media (min-width: 1000px) {
+
   [data-testid="stHorizontalBlock"] {
     gap: 1.25rem;
   }
+
 }
 
-/* Responsive/mobile */
-@media (max-width: 900px) {
+
+/* =========================================================
+   21. FOCUS / ACCESSIBILITY
+   ========================================================= */
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid rgba(37, 99, 235, .55) !important;
+
+  outline-offset: 2px;
+}
+
+
+/* Improve keyboard navigation */
+
+.stButton > button:focus-visible,
+.stDownloadButton > button:focus-visible {
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, .14);
+}
+
+
+/* =========================================================
+   22. RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
   .main .block-container {
-    padding: 1.25rem 1rem 2rem;
+    max-width: 100%;
+    padding: 1.6rem 1.5rem 3rem;
   }
 
   h1 {
-    font-size: 1.75rem !important;
+    font-size: 2.15rem !important;
   }
 
+}
+
+
+/* =========================================================
+   23. RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .main .block-container {
+    padding: 1.25rem 1rem 2.5rem;
+  }
+
+
+  h1 {
+    font-size: 1.8rem !important;
+  }
+
+
+  h2 {
+    font-size: 1.45rem !important;
+  }
+
+
+  h3 {
+    font-size: 1.1rem !important;
+  }
+
+
   .stTabs [data-baseweb="tab"] {
-    padding: 0 10px;
+    padding: 0 12px;
+
     font-size: .9rem;
   }
 
+
   div[data-testid="stMetric"] {
-    padding: 14px;
+    padding: 16px;
   }
+
+
+  [data-testid="stPlotlyChart"],
+  iframe[title*="streamlit_folium"],
+  iframe[title*="Folium"] {
+    border-radius: 13px !important;
+  }
+
 }
 
+
+/* =========================================================
+   24. RESPONSIVE — SMALL MOBILE
+   ========================================================= */
+
 @media (max-width: 640px) {
+
   .main .block-container {
-    padding: 1rem .7rem 1.5rem;
+    padding: 1rem .75rem 2rem;
   }
+
+
+  h1 {
+    font-size: 1.65rem !important;
+
+    letter-spacing: -.02em;
+  }
+
+
+  h2 {
+    font-size: 1.35rem !important;
+  }
+
+
+  h3 {
+    font-size: 1.05rem !important;
+  }
+
+
+  /* Full-width buttons */
 
   .stButton > button,
   .stDownloadButton > button {
     width: 100%;
+
+    min-height: 44px;
   }
+
+
+  /* Tabs */
 
   .stTabs [data-baseweb="tab-list"] {
     overflow-x: auto;
+
+    scrollbar-width: none;
+
+    gap: 4px;
   }
 
-  .stTabs [data-baseweb="tab"] {
-    white-space: nowrap;
+
+  .stTabs [data-baseweb="tab-list"]::-webkit-scrollbar {
+    display: none;
   }
+
+
+  .stTabs [data-baseweb="tab"] {
+    flex-shrink: 0;
+
+    white-space: nowrap;
+
+    padding: 0 11px;
+
+    font-size: .86rem;
+  }
+
+
+  /* Metrics */
+
+  div[data-testid="stMetric"] {
+    padding: 15px;
+  }
+
+
+  div[data-testid="stMetricValue"] {
+    font-size: 1.35rem;
+  }
+
+
+  /* File uploader */
+
+  [data-testid="stFileUploaderDropzone"] {
+    min-height: 130px;
+  }
+
+
+  /* Sidebar */
 
   section[data-testid="stSidebar"] {
     min-width: 270px;
   }
+
+
+  /* Tables */
+
+  [data-testid="stDataFrame"] {
+    border-radius: 12px;
+  }
+
 }
 
-/* Reduce Streamlit's default top whitespace */
-[data-testid="stHeader"] {
-  background: transparent;
+
+/* =========================================================
+   25. VERY SMALL SCREENS
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+  .main .block-container {
+    padding: .85rem .6rem 1.5rem;
+  }
+
+
+  h1 {
+    font-size: 1.5rem !important;
+  }
+
+
+  h2 {
+    font-size: 1.25rem !important;
+  }
+
+
+  .stTabs [data-baseweb="tab"] {
+    padding: 0 9px;
+
+    font-size: .82rem;
+  }
+
+
+  div[data-testid="stMetric"] {
+    border-radius: 13px;
+
+    padding: 13px;
+  }
+
+
+  .stButton > button,
+  .stDownloadButton > button {
+    min-height: 43px;
+
+    border-radius: 10px;
+  }
+
 }
 
-[data-testid="stDecoration"] {
-  display: none;
+
+/* =========================================================
+   26. REDUCE MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+
+    transition-duration: .01ms !important;
+
+    scroll-behavior: auto !important;
+  }
+
 }
+
+
+/* =========================================================
+   END — ShehrBehtar AI Premium Civic-Tech UI
+   ========================================================= */
